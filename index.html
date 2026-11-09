@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Guangzhou Shenzhen Hongkong 5D4N 24-28 NOV 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: '#00A0C6',
+        'brand-dark': '#007A99',
+        'brand-light': '#E6F7FB',
+        'brand-50': '#F0FAFC',
+        surface: '#FFFFFF',
+        txt: '#1E293B',
+        subtle: '#64748B',
+        accent: '#F59E0B'
+      }
+    }
+  }
+}
+</script>
+  <style>
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { font-family: 'Prompt', sans-serif; }
+.font-display { font-family: 'Playfair Display', serif; }
+
+.nav-btn { transition: all 0.3s ease; }
+.nav-btn:hover, .nav-btn.active { background: #00A0C6; color: white; }
+.nav-btn.active { box-shadow: 0 4px 12px rgba(0,160,198,0.3); }
+
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,160,198,0.15); }
+
+.day-card { border-left: 4px solid #00A0C6; }
+
+.fade-in { animation: fadeIn 0.5s ease forwards; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+.timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: #00A0C6; border: 3px solid white; box-shadow: 0 0 0 2px #00A0C6; }
+
+.meal-card { background: linear-gradient(135deg, #F0FAFC 0%, #FFFFFF 100%); }
+
+.weather-icon { font-size: 2rem; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F0FAFC; }
+::-webkit-scrollbar-thumb { background: #00A0C6; border-radius: 3px; }
+
+.hero-bg {
+  background: linear-gradient(135deg, #00A0C6 0%, #007A99 40%, #005E78 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 80%;
+  height: 200%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 70%);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to top, white, transparent);
+}
+
+.tab-section { display: none; }
+.tab-section.active { display: block; }
+
+.day-tab { cursor: pointer; transition: all 0.2s; }
+.day-tab:hover { background: #E6F7FB; }
+.day-tab.active-day { background: #00A0C6; color: white; border-radius: 9999px; }
+
+/* Responsive image — works on both desktop and mobile */
+.tour-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+/* ===================== RESPONSIVE LAYOUT SYSTEM ===================== */
+/* Mobile-first base styles, then desktop overrides at md breakpoint (768px) */
+
+/* --- Navigation: mobile = 3-column grid menu, desktop = single scrollable row --- */
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+.nav-btn {
+  white-space: normal;
+  text-align: center;
+  font-size: 0.68rem;
+  line-height: 1.15;
+  padding: 0.55rem 0.3rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .nav-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.4rem;
+  }
+  .nav-btn {
+    white-space: nowrap;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    min-height: auto;
+    display: inline-block;
+  }
+}
+
+/* --- Meal / attraction image pairs: stack on mobile, side-by-side on desktop --- */
+.img-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.img-pair > img {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .img-pair {
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+  .img-pair > img {
+    width: 50%;
+  }
+}
+
+@media (max-width: 640px) {
+  .tour-img { aspect-ratio: 4 / 3; }
+}
+
+/* --- Timeline: tighter indent + smaller dot offset on mobile --- */
+.timeline-list {
+  margin-left: 0.25rem;
+  border-left-width: 2px;
+  padding-left: 1rem;
+}
+.timeline-dot-wrap { left: -21px; }
+@media (min-width: 768px) {
+  .timeline-list {
+    margin-left: 1.25rem;
+    padding-left: 1.5rem;
+  }
+  .timeline-dot-wrap { left: -31px; }
+}
+
+/* --- Day tabs (วันที่ 1/2/3): full-width equal split on mobile, pill row on desktop --- */
+.day-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.day-tab {
+  text-align: center;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .day-tabs {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .day-tab {
+    display: inline-flex;
+    min-height: auto;
+  }
+}
+
+/* --- Passenger room cards: 1 column mobile, 2 columns desktop --- */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .rooms-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+}
+.room-card { margin-bottom: 0 !important; }
+
+/* --- Summary stat bar: 2x2 on mobile, single row on desktop --- */
+.stats-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .stats-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+}
+
+/* --- Flight cards: stack the times vertically on very small screens --- */
+@media (max-width: 420px) {
+  .flight-row { flex-wrap: wrap; row-gap: 0.75rem; }
+  .flight-row .flight-arrow { order: 3; width: 100%; }
+}
+
+/* --- Image slider: swipeable, one large image at a time --- */
+.img-slider {
+  position: relative;
+  margin-top: 0.75rem;
+}
+.img-slider-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.75rem;
+  scrollbar-width: none;
+}
+.img-slider-track2 {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.75rem;
+  scrollbar-width: none;
+}
+.img-slider-track::-webkit-scrollbar { display: none; }
+.img-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+.img-slide img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.img-slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  pointer-events: none;
+}
+.img-slider-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.55);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.img-slider-dots span.active {
+  background: #ffffff;
+  transform: scale(1.3);
+}
+.img-slider-counter {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(15,23,42,0.55);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+/* สไลเดอร์แบบแสดงรูปเต็ม ไม่ตัดรูป */
+.img-slider-full .img-slider-track {
+  align-items: center;
+  background: #F0FAFC;
+}
+.img-slider-full .img-slide img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  max-height: 80vh;
+}
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-white text-txt">
+  <div id="app" class="h-full overflow-auto w-full">
+
+   <!-- Hero -->
+   <header class="hero-bg text-white px-4 py-10 md:py-16 text-center relative z-10">
+    <div class="max-w-4xl mx-auto relative z-10">
+     <p id="companyNameDisplay" class="text-sm tracking-[0.3em] uppercase opacity-80 mb-3">Bluefly Travel</p>
+     <div class="flex items-center justify-center gap-2 md:gap-3 mb-4">
+      <h1 id="mainTitleDisplay" class="font-display text-2xl md:text-5xl font-bold leading-tight">FTI - IDTI </h1>
+     </div>
+     <p class="text-lg md:text-xl opacity-90 font-light">5 Days 4 Nights</p>
+     <div class="flex items-center justify-center gap-4 mt-4 text-sm opacity-80">
+      <span>📅 24 - 28 November 2026</span> 
+     </div>
+     <div class="flex flex-wrap justify-center gap-2 mt-6">
+      <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs">Guangzhou</span>
+      <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs">Shenzhen</span>
+      <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs">Hongkong</span>
+     </div>
+    </div>
+   </header>
+
+   <!-- Navigation -->
+   <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-brand-light">
+    <div class="max-w-5xl mx-auto nav-grid p-2">
+     <button onclick="showSection('flights')" class="nav-btn active rounded-full font-medium text-brand border border-brand/20" data-nav="flights"><span class="hidden md:inline">✈️ </span>เที่ยวบิน</button>
+     <button onclick="showSection('itinerary')" class="nav-btn rounded-full font-medium text-brand border border-brand/20" data-nav="itinerary"><span class="hidden md:inline">📋 </span>โปรแกรมทัวร์</button>
+     <button onclick="showSection('country')" class="nav-btn rounded-full font-medium text-brand border border-brand/20" data-nav="country"><span class="hidden md:inline">🌎 </span>ข้อมูลประเทศ</button>
+     <button onclick="showSection('weather')" class="nav-btn rounded-full font-medium text-brand border border-brand/20" data-nav="weather"><span class="hidden md:inline">🌤️ </span>สภาพอากาศ</button>
+     <button onclick="showSection('clothing')" class="nav-btn rounded-full font-medium text-brand border border-brand/20" data-nav="clothing"><span class="hidden md:inline">👔 </span>การแต่งกาย</button>
+     <button onclick="showSection('Passenger')" class="nav-btn rounded-full font-medium text-brand border border-brand/20" data-nav="Passenger">รายชื่อผู้เดินทาง</button>
+    </div>
+   </nav>
+
+   <main class="max-w-5xl mx-auto px-4 py-8">
+
+    <!-- ========== FLIGHTS ========== -->
+    <section id="sec-flights" class="tab-section active fade-in">
+     <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-dark mb-6">✈️ ข้อมูลเที่ยวบิน</h2>
+
+          <div class="bg-brand-50 border border-brand/20 rounded-2xl p-5 mb-6">
+      <h4 class="font-semibold text-brand-dark mb-2">📍 จุดนัดหมาย</h4>
+      <p class="text-sm text-subtle">06.30 น. คณะพร้อมกัน ณ สนามบินสุวรรณภูมิ อาคารผู้โดยสารขาออกระหว่างประเทศ ชั้น 4 ประตู 4 เคาน์เตอร์ H สายการบิน THAI AIRWAYS (TG)  — เจ้าหน้าที่บริษัทบลูฟลาย ทราเวิล คอยให้การต้อนรับและอำนวยความสะดวก</p>
+     </div>
+
+     <div class="bg-brand-50 border border-brand/20 rounded-2xl p-5 mb-6">
+      <h4 class="font-semibold text-brand-dark mb-2">📞 หัวหน้าทัวร์</h4>
+  <p class="text-sm text-subtle">นาย.บรรพต อดุลยานุภาพ (คุณอเล็กซ์) — โทร. 081-610-7263 </p>
+ <p class="text-sm text-subtle">บริษัท Bluefly Travel — โทร. 02-164-1888 / 081-815-5599</p>
+</div>
+
+     <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-6">
+      <h4 class="font-semibold text-amber-800 mb-3">🧳 ข้อมูลน้ำหนักกระเป๋า</h4>
+      <div class="grid md:grid-cols-2 gap-4 text-sm">
+       <div>
+        <p class="font-semibold text-amber-900 mb-2">✈️ Business Class</p>
+        <ul class="text-amber-700 space-y-1 text-xs">
+         <li>• Carry on: 1 ใบ ไม่เกิน 7 กิโลกรัม</li>
+         <li>• Checked bag: 2 ใบ ใบละไม่เกิน 32 กิโลกรัม</li>
+        </ul>
+       </div>
+       <div>
+        <p class="font-semibold text-amber-900 mb-2">✈️ Economy Class</p>
+        <ul class="text-amber-700 space-y-1 text-xs">
+         <li>• Carry on: 1 ใบ ไม่เกิน 7 กิโลกรัม</li>
+         <li>• Checked bag: 1 ใบ ไม่เกิน 23 กิโลกรัม</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <h3 class="font-semibold text-brand mb-3">🛫 ขาไป — 24 พฤศจิกายน 2569</h3>
+     <div class="space-y-4 mb-8">
+      <div class="bg-white border border-brand/20 rounded-2xl p-5 card-hover">
+       <div class="flex items-center gap-2 mb-3">
+        <span class="bg-brand text-white px-3 py-1 rounded-full text-xs font-semibold">TG 668</span> <span class="text-sm text-subtle">THAI AIRWAYS</span>
+       </div>
+       <div class="flex items-center gap-4">
+        <div class="text-center">
+         <p class="text-2xl font-bold text-brand-dark">09:20</p>
+         <p class="text-sm font-medium">BKK</p>
+         <p class="text-xs text-subtle">กรุงเทพฯ</p>
+         <p class="text-xs text-subtle">24 พ.ย.</p>
+        </div>
+        <div class="flex-1 flex flex-col items-center">
+         <p class="text-xs text-subtle mb-1">03 ชม. 00 นาที</p>
+         <div class="w-full flex items-center">
+          <div class="w-2 h-2 rounded-full bg-brand"></div>
+          <div class="flex-1 h-[2px] bg-gradient-to-r from-brand to-brand-dark"></div><span class="text-lg">✈️</span>
+         </div>
+        </div>
+        <div class="text-center">
+         <p class="text-2xl font-bold text-brand-dark">13:20</p>
+         <p class="text-sm font-medium">CAN</p>
+         <p class="text-xs text-subtle">กวางโจว</p>
+         <p class="text-xs text-subtle">24 พ.ย. </p>
+        </div>
+       </div>
+      </div>
+
+     <h3 class="font-semibold text-brand mb-3">🛫 ขากลับ — 28 พฤศจิกายน 2569</h3>
+     <div class="space-y-4 mb-8">
+      <div class="bg-white border border-brand/20 rounded-2xl p-5 card-hover">
+       <div class="flex items-center gap-2 mb-3">
+        <span class="bg-brand text-white px-3 py-1 rounded-full text-xs font-semibold">TG 639</span>
+        <span class="text-sm text-subtle">THAI AIRWAYS</span>
+       </div>
+
+       <div class="flex items-center gap-4">
+        <div class="text-center">
+         <p class="text-2xl font-bold text-brand-dark">18:55</p>
+         <p class="text-sm font-medium">HKG</p>
+         <p class="text-xs text-subtle">ฮ่องกง</p>
+         <p class="text-xs text-subtle">28 พ.ย.</p>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center">
+         <p class="text-xs text-subtle mb-1">02 ชม. 45 นาที</p>
+         <div class="w-full flex items-center">
+          <div class="w-2 h-2 rounded-full bg-brand"></div>
+          <div class="flex-1 h-[2px] bg-gradient-to-r from-brand to-brand-dark"></div>
+          <span class="text-lg">✈️</span>
+         </div>
+        </div>
+
+        <div class="text-center">
+         <p class="text-2xl font-bold text-brand-dark">20:40</p>
+         <p class="text-sm font-medium">BKK</p>
+         <p class="text-xs text-subtle">กรุงเทพฯ</p>
+         <p class="text-xs text-subtle">28 พ.ย.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    <!-- ========== ITINERARY ========== -->
+    <section id="sec-itinerary" class="tab-section fade-in">
+     <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-dark mb-6">📋 โปรแกรมทัวร์</h2>
+     <div class="flex flex-wrap gap-2 mb-6">
+      <button onclick="showDay(1)" class="day-tab active-day px-4 py-2 text-sm font-medium rounded-full border border-brand/20">วันที่ 1</button>
+      <button onclick="showDay(2)" class="day-tab px-4 py-2 text-sm font-medium rounded-full border border-brand/20">วันที่ 2</button>
+      <button onclick="showDay(3)" class="day-tab px-4 py-2 text-sm font-medium rounded-full border border-brand/20">วันที่ 3</button>
+      <button onclick="showDay(4)" class="day-tab px-4 py-2 text-sm font-medium rounded-full border border-brand/20">วันที่ 4</button>
+      <button onclick="showDay(5)" class="day-tab px-4 py-2 text-sm font-medium rounded-full border border-brand/20">วันที่ 5</button>
+     </div>
+
+     <!-- ===== DAY 1 ===== -->
+     <div id="day-1" class="day-content w-full">
+      <div class="day-card bg-white rounded-2xl p-6 shadow-sm border border-brand/10">
+       <div class="flex items-center gap-3 mb-4">
+        <span class="bg-brand text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">1</span>
+        <div>
+         <h3 class="font-semibold text-lg">วันอังคารที่ 24 พฤศจิากยน 2569</h3>
+         <p class="text-sm text-subtle">กรุงเทพฯ → กวางโจว (สาธารณรัฐประชาชนจีน) </p>
+        </div>
+        <span class="ml-auto text-2xl">✈️</span>
+       </div>
+       <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
+       </div>
+       <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
+        <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <p class="text-sm"><span class="font-semibold text-brand">06:30 น.</span> — คณะพบกันที่ สนามบินสุวรรณภูมิ อาคารผู้โดยสารขาออก ชั้น 4 ประตู 4 เคาน์เตอร์ H สายการบิน THAI AIRWAYS (TG) เจ้าหน้าที่บริษัทบลูฟลาย ทราเวิลคอยให้การต้อนรับและอำนวยความสะดวก</p>
+        </div>
+
+        <div class="bg-brand-50 rounded-xl p-3 text-xs text-subtle flex items-center gap-2">
+         <span>💡</span> แนะนำเดินทางมาถึงสนามบินก่อนเวลานัดหมายอย่างน้อย 30 นาที
+        </div>
+      
+        <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <p class="text-sm"><span class="font-semibold text-brand">09:20 น.</span> — 🛫 ออกเดินทางสู่ สนามบินกว่างโจวไป๋-ยฺหวิน โดยสายการบิน THAI AIRWAYS (TG) เที่ยวบินที่ TG 668</p>
+        </div>
+
+        <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <p class="text-sm"><span class="font-semibold text-brand">13:20 น.</span> — 🛬 คณะเดินทางถึง สนามบินเมืองกวางโจว (สาธารณรัฐประชาชนจีน) หลังผ่านพิธีการทางสนามบินแล้ว (เวลาท้องถิ่นเร็วกว่าประเทศไทย 1 ชั่วโมง)</span></p>
+        <strong>เมืองกวางโจว (Guangzhou)</strong>         
+         เมืองกวางโจว หรือที่รู้จักกันในชื่อ กวางเจา เป็นเมืองเอกของมณฑลกวางตุ้ง ประเทศจีน เป็นเมืองใหญ่ที่มีความสำคัญทางเศรษฐกิจ การค้า และวัฒนธรรม กวางโจวมีประวัติศาสตร์ยาวนาน และเป็นที่รู้จักในฐานะศูนย์กลางการค้าและการผลิต</span>
+      </div>
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🛕 วัดต้าฝอ (Dafo Temple)</p>
+          <p class="text-subtle mt-1">ชม วัดต้าฝอ (Dafo Temple) เป็น 1 ใน 5 วัดพุทธโบราณที่สำคัญและเก่าแก่ที่สุดของเมืองกวางโจว มีประวัติศาสตร์ยาวนานกว่า 1,000 ปี ตั้งอยู่ในเขตเยว่ซิว (Yuexiu District) ใจกลางแหล่งช้อปปิ้งยอดนิยมอย่างถนนคนเดินเป่ยจิงลู่ (Beijing Road Pedestrian Street) สร้างขึ้นครั้งแรกในสมัยราชวงศ์ฮั่นใต้ (ค.ศ. 917–971) โดยปฐมกษัตริย์หลิวเอียน เดิมชื่อว่า "วัดซินซ่าง" (Xinzang Temple) ผ่านการทำลายและสร้างใหม่หลายครั้ง ในสมัยราชวงศ์หมิงได้ขยายพื้นที่และเปลี่ยนชื่อเป็นวัดหลงซ่าง จนกระทั่งในสมัยราชวงศ์ชิง (ปี ค.ศ. 1663) ได้รับการบูรณะครั้งใหญ่โดย "ซ่างเค่อสี่" (Shang Kexi) อ๋องผิงหนาน</p>
+      <div class="img-slider">
+        <div class="img-slider-track">
+        <div class="img-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4BKZvOdSXHBygQjO-S5sQyRYirDBSJ-_y6neY5qArdCv0TtoshjrU-aDM&s=10" loading="lazy" alt="Milan Duomo 1"></div>
+        <div class="img-slide"><img src="https://d3fphkxyf5o5bm.cloudfront.net/image-resize/format=webp,w=720/QwRY54Li1HMwD7oNfoxNv0VDfVJWIvLXHbIIwAYI4f" loading="lazy" alt="Milan Duomo 2"></div>
+       <div class="img-slide"><img src="https://media.istockphoto.com/id/171349772/photo/dafo-temple-guangzhou-china.jpg?s=612x612&w=0&k=20&c=006zBu_Ca9oMGS1t3PLscAGeuccVRYA7798W_7AfJMw=" loading="lazy" alt="Milan Duomo 3"></div>
+        </div>
+        <div class="img-slider-dots"><span class="active"></span><span></span><span></span></div>
+        <div class="img-slider-counter">1/3</div>
+        </div>
+        </div>
+      </div>
+
+<div class="relative">
+  <div class="timeline-dot absolute -left-[31px] top-1"></div>
+  <div class="text-sm">
+    <p class="font-semibold">🛍️ ถนนคนเดินปักกิ่ง (Beijing Road Pedestrian Street)</p>
+    <p class="text-subtle mt-1">อิสระช้อปปิ้ง ถนนคนเดินปักกิ่ง (Beijing Road Pedestrian Street) เป็นย่านช้อปปิ้งและถนนคนเดินสายประวัติศาสตร์ที่เก่าแก่และมีชื่อเสียงที่สุดใจกลางเมืองกวางโจว ผสมผสานความโดดเด่นทางประวัติศาสตร์หลายพันปีเข้ากับความทันสมัยของศูนย์การค้าได้อย่างลงตัว ถนนสายนี้เป็นเส้นทางคมนาคมหลักของเมืองกวางโจวมาตั้งแต่สมัยราชวงศ์ฉินและฮั่น (มากกว่า 2,000 ปี) ไฮไลท์สำคัญคือพื้นที่ตรงกลางถนนที่มีการขุดพบร่องรอยถนนโบราณซ้อนทับกันถึง 5 ยุคสมัย (ตั้งแต่สมัยซ่งถึงชิง) ทางเมืองได้ทำ "กระจกนิรภัยใส" ครอบไว้บนพื้น</p>
+    <div class="img-slider">
+      <div class="img-slider-track">
+        <div class="img-slide"><img src="https://images.trvl-media.com/place/6209409/02bb2734-03d9-4186-8930-d1f6304b51d2.jpg" loading="lazy" alt="University of Milan 1"></div>
+        <div class="img-slide"><img src="https://images.trvl-media.com/place/6209409/9bca385c-7dfc-4655-b508-9de828bd2880.jpg" loading="lazy" alt="University of Milan 2"></div>
+      </div>
+      <div class="img-slider-dots"><span class="active"></span><span></span></div>
+      <div class="img-slider-counter">1/2</div>
+    </div>
+    </div>
+    </div>
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🍽️ รับประทานอาหารค่ำ ณ ภัตตาคาร KLH  buffet seafood</p>
+          <div class="meal-card rounded-lg p-3 mt-2 text-xs">
+          <div class="img-slider">
+            <div class="img-slider-track">
+              <div class="img-slide"><img src="https://cdn2.orstatic.com.cn/userphoto2/photo/9/7FV/01GWXD39F6443619699C07mx.jpg" loading="lazy" alt="Hida Takayama 1"></div>
+              <div class="img-slide"><img src="https://cdn4.orstatic.com.cn/userphoto2/photo/9/7FV/01GWXFBBC623288C5329F3mx.jpg" loading="lazy" alt="Hida Takayama 2"></div>              
+            </div>
+            <div class="img-slider-dots"><span class="active"></span><span></span></div>
+            <div class="img-slider-counter">1/2</div>
+            </div><!-- /img-slider -->
+           </div><!-- /meal-card -->
+          </div><!-- /text-sm -->
+         </div><!-- /relative -->
+
+       </div>
+       <div class="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs flex items-center gap-2">
+        <span>🏨</span> <strong>นำคณะเข้าสู่ที่พัก Hampton by Hilton Guangzhou Tianhe Sports Center ★★★★</strong>
+       </div>
+      </div>
+     </div> <!-- /day-1 -->
+
+<!-- ===== DAY 2 ===== -->
+<div id="day-2" class="day-content" style="display:none;">
+      <div class="day-card bg-white rounded-2xl p-6 shadow-sm border border-brand/10">
+       <div class="flex items-center gap-3 mb-4">
+        <span class="bg-brand text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">2</span>
+        <div>
+         <h3 class="font-semibold text-lg">วันพุธที่ 25 พฤศจิกายน 2569</h3>
+         <p class="text-sm text-subtle">กวางโจว → เซินเจิ้น </p>
+        </div>
+        <span class="ml-auto text-2xl">✈️</span>
+       </div>
+       <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🚗 Xpeng AI Manufacturing Base</p>
+          <p class="text-subtle mt-1">ศึกษาดูงาน Xpeng AI Manufacturing Base ฐานการผลิตอัจฉริยะของ XPeng (เสี่ยวเผิง) ผู้ผลิตยานยนต์ไฟฟ้า (EV) และเทคโนโลยีการบินระดับชั้นนำของจีน ตั้งอยู่ที่เมืองกวางโจว มณฑลกวางตุ้ง ถือเป็นหนึ่งในโรงงานผลิตรถยนต์ที่ล้ำสมัยที่สุดในโลกภายใต้แนวคิด "AI & Smart Manufacturing" มีพื้นที่รวมหลายแสนตารางเมตร พร้อมกำลังการผลิตรองรับรถยนต์ไฟฟ้าอัจฉริยะมากกว่า 100,000–200,000 คันต่อปี ในส่วนของโครงสร้างตัวถัง (Welding & Stamping Shop) ใช้หุ่นยนต์อุตสาหกรรมทำงานเกือบ 100% ทำให้ประกอบรถยนต์ด้วยความแม่นยำระดับมิลลิเมตร เป็นสถานที่ผลิตรถยนต์ไฟฟ้ารุ่นยอดนิยม เช่น XPeng G6, G9 และ X9 ซึ่งชูจุดเด่นเรื่องระบบสถาปัตยกรรม 800V SiC ชาร์จไว และระบบปฏิบัติการ AI XOS Tianji</p>
+      <div class="img-slider">
+        <div class="img-slider-track">
+        <div class="img-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo3T-9-CML41xAozX2MNIzM3QTNsuMu9BMC230T7dWyWSpgTx_DN0lDXHi&s=10" loading="lazy" alt="Milan Duomo 1"></div>
+        <div class="img-slide"><img src="https://i.ytimg.com/vi/608hZu49eFk/sddefault.jpg"></div>
+       <div class="img-slide"><img src="https://s-cdn.xpeng.com/commoncms/prod/2026-05-18/ac4303293bf54a89bd786f0f9c4357e6.jpg" loading="lazy" alt="Milan Duomo 3"></div>
+        </div>
+        <div class="img-slider-dots"><span class="active"></span><span></span><span></span></div>
+        <div class="img-slider-counter">1/3</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🍽️ รับประทานอาหารกลางวัน ณ ภัตตาคาร Diandude Dimsum</p>
+          <div class="meal-card rounded-lg p-3 mt-2 text-xs">
+           <p class="font-medium text-brand-dark mb-1">📋Menu:</p>
+           <p>ฮะเก๋า, ขนมจีบ, ซี่โครงหมูนึ่ง, ขาไก่นึ่งเต้าซี่, โจ๊กไข่เยี่ยวม้าหมูสับ, ปาท่องโก๋, ก๋วยเตี๋ยวหลอดแป้งข้าวแดง, ทาร์ตไข่, ผักกาดลวกน้ำร้อนราดซอสน้ำมันหอย, เสี่ยวหลงเปา, ฟั่นกว่อ (เกี๊ยวนึ่งแป้งใสไส้ผัก/หมู), ไข่เจียว </p>        
+          <div class="img-slider">
+            <div class="img-slider-track">
+              <div class="img-slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RricEPrRbGljGRp3mviA6TjwymlyDEUF68nOPm4hIsKSKsH-_mIMPWKXFCJiUNiFoS1PgBYsAiwdB2JZ2YzbpYvrQ6aBrnzkA-ci8CTYBhX8ApJ1GS2FTfroYPQlWqMZab-L4A1Pp8h24=s680-w680-h510-rw" loading="lazy" alt="Hida Takayama 1"></div>
+              <div class="img-slide"><img src="https://ak-d.tripcdn.com/images/100v0k000000cqkws0F16.jpg" loading="lazy" alt="Hida Takayama 2"></div>              
+            </div>
+            <div class="img-slider-dots"><span class="active"></span><span></span></div>
+            <div class="img-slider-counter">1/2</div>
+            </div><!-- /img-slider -->
+           </div><!-- /meal-card -->
+          </div><!-- /text-sm -->
+         </div><!-- /relative -->
+
+<div class="relative">
+  <div class="timeline-dot absolute -left-[31px] top-1"></div>
+  <div class="text-sm">
+    <p class="font-semibold">❄️ โรงงานอัจฉริยะ Midea Nansha (Midea Nansha Smart Factory)</p>
+    <p class="text-subtle mt-1">ศึกษาดูงาน โรงงานอัจฉริยะ Midea Nansha (Midea Nansha Smart Factory) เป็นโรงงานผลิตเครื่องปรับอากาศหลักของ Midea Group ที่ได้รับการยอมรับระดับสากล และได้รับการยกย่องจาก World Economic Forum (WEF) ให้เป็น "โรงงานประภาคาร" (Lighthouse Factory) โรงงานได้รับการอัปเกรดเทคโนโลยีอย่างต่อเนื่องจนก้าวสู่การเป็น Agentic Factory หรือโรงงานที่ขับเคลื่อนด้วยระบบปัญญาประดิษฐ์ (AI Agents) ในการบริหารจัดการ</p>
+    <p class="text-subtle mt-1"> • ระบบอัตโนมัติอิสระ: มี AI Agents คอยตรวจจับ ตัดสินใจ และสั่งการสายการผลิตอัตโนมัติ หากเครื่องจักรเกิดข้อผิดพลาด ระบบจะจัดสรรกำลังการผลิตไปยังจุดอื่นทันทีโดยอัตโนมัติ</p>
+    <p class="text-subtle mt-1"> • กำลังการผลิตสูง: สามารถผลิตเครื่องปรับอากาศได้สูงสุดถึง 45,000 เครื่องต่อวัน รองรับความต้องการของตลาดทั่วโลกอย่างมีประสิทธิภาพ </p>
+    <p class="text-subtle mt-1"> • การควบคุมคุณภาพด้วย AI Vision: ใช้ระบบกล้อง AI ตรวจสอบข้อผิดพลาดของชิ้นส่วนได้มากกว่า 20 จุดภายในเวลาเพียง 6 วินาที ช่วยลดอัตราการรั่วซึมของผลิตภัณฑ์ลงได้ถึง 70% </p>
+    <div class="img-slider">
+      <div class="img-slider-track">
+        <div class="img-slide"><img src="https://www.marketplus.in.th/public/images/upload/1758006323.jpeg" loading="lazy" alt="University of Milan 1"></div>
+        <div class="img-slide"><img src="https://static.thairath.co.th/media/dFQROr7oWzulq5Fa6ri5zD5YW5RQwhsD5G8px0R7CKbtfu5NyzihNpq5MEBY43VCuDC.jpg" loading="lazy" alt="University of Milan 2"></div>
+      </div>
+      <div class="img-slider-dots"><span class="active"></span><span></span></div>
+      <div class="img-slider-counter">1/2</div>
+    </div>
+    </div>
+    </div>
+
+<div class="relative">
+  <div class="timeline-dot absolute -left-[31px] top-1"></div>
+  <div class="text-sm">
+    <p class="font-semibold"> เมืองเซินเจิ้น (Shenzhen)</p>
+    <p class="text-subtle mt-1">เดินทางสู่ เมืองเซินเจิ้น (ใช้เวลาเดินทางประมาณ 1 ชั่วโมง 30 นาที) เมืองชายแดนริมฝั่งตรงข้ามกับเกาะฮ่องกง มีพื้นที่ 2,020 ตารางกิโลเมตร เซินเจิ้นแบ่งออกเป็น 3 ส่วน คือ เขตเมืองเซินเจิ้น เขตเศรษฐกิจพิเศษเซินเจิ้น และเขตมณฑลเซินเจิ้น สมัยก่อนเมืองเซินเจิ้นเป็นเพียงหมู่บ้านชาวประมง เมื่อปี ค.ศ. 1980 ได้ถูกคัดเลือกให้เป็นเขตเศรษฐกิจพิเศษทำให้มีความเจริญ และความทันสมัยภายในเมืองนี้มากขึ้น </p>
+       </div>
+       </div>
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🍽️ รับประทานอาหารค่ำ ณ ภัตตาคาร Li Yuan Restaurant </p>
+          <div class="meal-card rounded-lg p-3 mt-2 text-xs">
+           <p class="font-medium text-brand-dark mb-1">📋Menu:</p>
+           <p>ปูสามเหลี่ยมผัดขิงต้นหอม, กุ้งทะเลอบซีอิ๊ว, ปลาหมึกอบซีอิ๊ว, เนื้อไก่อ่อนรสเผ็ด, หมูกรอบสับปะรด, หอยเชลล์นึ่งวุ้นเส้นกระเทียมสับ, ซุปฟักเขียว, ปลานึ่งเต้าเจี้ยว, หอยเป๋าฮื้อต้าเหลียนนึ่งเปลือกส้มแห้ง, ผัดผักตามฤดูกาลกระเทียมสับ, ไข่เจียว, ข้าวสวย, เบียร์ 2 น้ำอัดลม 1, ผลไม้ </p>        
+          <div class="img-slider">
+            <div class="img-slider-track">
+              <div class="img-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSyYHkpkV6X4moiOYXdK6jla3lSv8TLhag6IvlczN_4zOUPI5KqPnLZqZO&s=10" loading="lazy" alt="Hida Takayama 1"></div>
+              <div class="img-slide"><img src="https://static.hkej.com/hkej/images/2017/10/04/1667929_06b5f8c59c175096f593870949310dee.png" loading="lazy" alt="Hida Takayama 2"></div>              
+            </div>
+            <div class="img-slider-dots"><span class="active"></span><span></span></div>
+            <div class="img-slider-counter">1/2</div>
+            </div><!-- /img-slider -->
+           </div><!-- /meal-card -->
+          </div><!-- /text-sm -->
+         </div><!-- /relative -->
+
+       </div>
+       <div class="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs flex items-center gap-2">
+        <span>🏨</span> <strong>นำคณะเข้าสู่ที่พัก Hampton by Hilton Shenzhen Dongmen ★★★★</strong>
+       </div>
+      </div>
+     </div><!-- /day-2 -->
+
+     <!-- ===== DAY 3 ===== -->
+     <div id="day-3" class="day-content" style="display:none;">
+      <div class="day-card bg-white rounded-2xl p-6 shadow-sm border border-brand/10">
+       <div class="flex items-center gap-3 mb-4">
+        <span class="bg-brand text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">3</span>
+        <div>
+         <h3 class="font-semibold text-lg">วันพฤหัสบดีที่ 26 พฤศจิกายน 2569</h3>
+         <p class="text-sm text-subtle">เซินเจิ้น</p>
+        </div>
+        <span class="ml-auto text-2xl">📓</span>
+       </div>
+       <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
+
+<div class="relative">
+  <div class="timeline-dot absolute -left-[31px] top-1"></div>
+  <div class="text-sm">
+    <p class="font-semibold">🏬 Tencent Binhai Towers</p>
+    <p class="text-subtle mt-1">ศึกษาดูงาน Tencent Binhai Towers รู้จักในชื่อ Tencent Seafront Towers คือสำนักงานใหญ่ระดับโลกของบริษัทเทคโนโลยียักษ์ใหญ่ Tencent (เจ้าของ WeChat, ROV, PUBG Mobile, JOOX และ Tencent Cloud) เป็นหนึ่งในแลนด์มาร์คด้านสถาปัตยกรรมและเทคโนโลยีที่ทันสมัยที่สุดแห่งหนึ่งของโลก ตึกนี้ถูกใช้เป็นห้องทดลองเทคโนโลยีจริง (Living Lab) ของ Tencent โดยนำระบบ AI, IoT และ Big Data มาใช้อย่างเต็มรูปแบบ  เช่น พนักงานใช้ระบบจดจำใบหน้า (Facial Recognition) โดยไม่ต้องแตะบัตร, สามารถกดเลือกลูกศรหรือชั้นผ่านแอปพลิเคชันบนสมาร์ตโฟน (WeChat) เพื่อลดเวลาการรอลิฟต์, ปรับอุณหภูมิและความสว่างของห้องประชุมอัตโนมัติ ตามจำนวนคนที่อยู่ในห้อง, ค้นหาจุดจอดรถว่างให้อัตโนมัติและนำทางผ่านแอปพลิเคชัน </p>
+    <div class="mt-3">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVVQOF770NMp7PiY-A_rwdt6IQBXL-MtFt7wFtWrsbblBLKL1WqeAciual&s=10" loading="lazy" class="tour-img" alt="Garuda Wisnu Kencana">
+    </div>
+    </div>
+    </div>
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🍽️ รับประทานอาหารกลางวัน ณ ภัตตาคาร Yu Yue Chuan Restaurant</p>
+          <div class="meal-card rounded-lg p-3 mt-2 text-xs">
+           <p class="font-medium text-brand-dark mb-1">📋Menu:</p>
+           <p class="font-medium text-brand-dark mb-1">ออเดิร์ฟ 3 อย่าง</p>
+           <p>หมี่เย็นไก่ฉีก, ยำหูหมู, ไก่น้ำลาย </p>        
+           <p class="font-medium text-brand-dark mb-1">จานหลัก</p>
+           <p>ปลากะพงต้มผักกาดดอง, หมูสามชั้นผัดต้นกระเทียม, ไก่ผัดพริกสไตล์ฉงชิ่ง, กุ้งนึ่งวุ้นเส้นกระเทียม, ขาหมูต้มผักกาดดองพริก, ซี่โคลงหมูนึ่ง, ผัดผัก, ถั่วแขกผัดพริก, ซุปกระดูกหมูรากบัว, ไข่เจียว, ข้าวสวย, โมจิราดน้ำตาลทรายแดง, เบียร์ 2 ขวด, โค้ก 1 ขวด </p>        
+          <div class="img-slider">
+            <div class="img-slider-track">
+              <div class="img-slide"><img src="https://cdn3.orstatic.com.cn/userphoto2/photo/9/75W/01EXVY44910196B2EA4FC4px.jpg" loading="lazy" alt="Hida Takayama 1"></div>
+              <div class="img-slide"><img src="https://cdn2.orstatic.com.cn/userphoto2/photo/9/75W/01EXW5A0EEF01823035876px.jpg" loading="lazy" alt="Hida Takayama 2"></div>              
+            </div>
+            <div class="img-slider-dots"><span class="active"></span><span></span></div>
+            <div class="img-slider-counter">1/2</div>
+            </div><!-- /img-slider -->
+           </div><!-- /meal-card -->
+          </div><!-- /text-sm -->
+         </div><!-- /relative -->
+
+<div class="relative">
+  <div class="timeline-dot absolute -left-[31px] top-1"></div>
+  <div class="text-sm">
+    <p class="font-semibold">💻 งาน China Hi-Tech Fair (CHTF) 2026 ครั้งที่ 28</p>
+    <p class="text-subtle mt-1">เข้าร่วม งาน China Hi-Tech Fair (CHTF) 2026 ครั้งที่ 28 ณ ศูนย์นิทรรศการและการประชุมระดับโลกเซินเจิ้น (Shenzhen World) บนพื้นที่กว่า 400,000 ตารางเมตร รวบรวมผู้จัดแสดงมากกว่า 5,000 บริษัทจากทั่วโลก ไฮไลต์และโซนจัดแสดงเทคโนโลยีในปี 2026 จะแบ่งออกเป็น 22 โซนอาชีพ โดยเน้นไปที่เทคโนโลยีเปลี่ยนโลกและอุตสาหกรรมแห่งอนาคต (Strategic Emerging Industries) ที่น่าสนใจสำหรับทริปดูงานเชิงธุรกิจ มีดังนี้</p>
+    <p class="text-subtle mt-1"> • Future Technology & AI: โซนปัญญาประดิษฐ์ (AI), ระบบอัจฉริยะ, ซอฟต์แวร์ และ Cloud Computing</p>
+    <p class="text-subtle mt-1"> • Semiconductor & Integrated Circuit: อุตสาหกรรมชิปและเซมิคอนดักเตอร์แบบครบวงจร </p>
+    <p class="text-subtle mt-1"> • Low-Altitude Economy & Aerospace: เทคโนโลยีโดรน (UAV), รถบินได้ (EVTOL) และเทคโนโลยีอวกาศ ซึ่งเซินเจิ้นกำลังเป็นผู้นำเทรนด์นี้ </p>
+    <p class="text-subtle mt-1"> • High-End Equipment Manufacturing: หุ่นยนต์อุตสาหกรรม, ระบบโรงงานอัตโนมัติ (Automation) และการผลิตอัจฉริยะ (Smart Manufacturing) </p>
+    <p class="text-subtle mt-1"> • New Energy Vehicles (NEVS): ยานยนต์ไฟฟ้า คอนเซปต์รถยนต์อัจฉริยะ และโครงสร้างพื้นฐานระบบชาร์จ </p>
+    <p class="text-subtle mt-1"> • Green & Low-Carbon: เทคโนโลยีเพื่อสิ่งแวดล้อม พลังงานสะอาด และความยั่งยืน </p>
+    <div class="img-slider">
+      <div class="img-slider-track">
+        <div class="img-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiZtgDFENe7WRZ20DR6W2BfKLJAmu4KMFcQcZfyjoX-lZJuWopHzXbyVM&s=10" loading="lazy" alt="University of Milan 1"></div>
+        <div class="img-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-FdLXSqFPU3Qh8pG4RiZPCDjzvqKQ_gdd1r1pvXrhlJ8WHqSGMucQE5RC&s=10" loading="lazy" alt="University of Milan 2"></div>
+      </div>
+      <div class="img-slider-dots"><span class="active"></span><span></span></div>
+      <div class="img-slider-counter">1/2</div>
+    </div>
+    </div>
+    </div>
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🍽️ รับประทานอาหารค่ำ ณ ภัตตาคาร Din tai fung</p>
+          <div class="meal-card rounded-lg p-3 mt-2 text-xs">
+           <p class="font-medium text-brand-dark mb-1">📋เมนูสำหรับ 2 ท่าน:</p>
+           <p>เสี่ยวหลงเปาสูตรพิเศษ 1 ที่, กุ้งลายเสือผัดกระเทียม, ผักโขมผัดกระเทียม, ไก่เหล้าเส้าซิง, ถั่วแขกผัดแห้ง, เกี๊ยวหมูราดน้ำมันพริกเสฉวน </p>        
+          <div class="img-slider">
+            <div class="img-slider-track">
+              <div class="img-slide"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/a7/85/7b/seasonal-taste.jpg?w=400&h=300&s=1" loading="lazy" alt="Hida Takayama 1"></div>
+              <div class="img-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzkZTeha746zV1oJViGNMt7oDdjxGDb1kKN25UG_Ktgj05j3OrXSTu8HhB&s=10" loading="lazy" alt="Hida Takayama 2"></div>              
+            </div>
+            <div class="img-slider-dots"><span class="active"></span><span></span></div>
+            <div class="img-slider-counter">1/2</div>
+            </div><!-- /img-slider -->
+           </div><!-- /meal-card -->
+          </div><!-- /text-sm -->
+         </div><!-- /relative -->
+
+       <div class="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs flex items-center gap-2">
+        <span>🏨</span> <strong>นำคณะเข้าสู่ที่พัก Hampton by Hilton Shenzhen Dongmen ★★★★</strong>
+       </div>
+      </div>
+      </div>
+
+     </div><!-- /day-3 -->
+
+<!-- ===== DAY 4 ===== -->
+<div id="day-4" class="day-content" style="display:none;">
+      <div class="day-card bg-white rounded-2xl p-6 shadow-sm border border-brand/10">
+       <div class="flex items-center gap-3 mb-4">
+        <span class="bg-brand text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">4</span>
+        <div>
+         <h3 class="font-semibold text-lg">วันศุกร์ที่ 27 พฤศจิกายน 2569</h3>
+         <p class="text-sm text-subtle">เซินเจิ้น </p>
+        </div>
+        <span class="ml-auto text-2xl">📱</span>
+       </div>
+       <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
+
+        <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <div class="text-sm">
+          <p class="font-semibold">📱 Huawei Technologies Co., Ltd.</p>
+          <p class="text-subtle mt-1">ศึกษาดูงาน Huawei Technologies Co., Ltd. ก่อตั้งขึ้นในปี 1987 หัวเว่ยเป็นผู้ให้บริการชั้นนำระดับโลกในด้านโครงสร้างพื้นฐานเทคโนโลยีสารสนเทศและการสื่อสาร (ICT) และอุปกรณ์อัจฉริยะ มุ่งมั่นที่จะนำระบบดิจิตอลไปสู่ทุกคนที่บ้านและองค์กรสำหรับโลกที่เชื่อมต่ออย่างชาญฉลาด มีพนักงานเกือบ 194,000 คนและดำเนินงานในกว่า 170 ประเทศและภูมิภาคให้บริการมากกว่าสามพันล้านคนทั่วโลก กลุ่มผลิตภัณฑ์โซลูชั่นและบริการแบบครบวงจรของ Huawei มีทั้งความสามารถในการแข่งขันและความปลอดภัย ผ่านการทำงานร่วมกันอย่างเปิดกว้างกับพันธมิตรระบบนิเวศ สร้างคุณค่าที่ยั่งยืนให้กับลูกค้าของเรา ทำงานเพื่อเสริมกำลังคนเสริมสร้างชีวิตที่บ้านและสร้างแรงบันดาลใจให้กับนวัตกรรมในองค์กรทุกขนาดและรูปร่าง ที่ Huawei นวัตกรรมมุ่งเน้นที่ความต้องการของลูกค้า ลงทุนอย่างหนักในการวิจัยพื้นฐานโดยมุ่งเน้นที่การคิดค้นทางเทคโนโลยีที่ขับเคลื่อนโลกไปข้างหน้า
+          <div class="mt-3">
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ido1L3ki82O15niwNbDlrtRCxrChLylCH8LD82biUtVyxbssxgT_w3KX&s=10" loading="lazy" class="tour-img" alt="Garuda Wisnu Kencana">
+          </div>
+         </div>
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🍽️ รับประทานอาหารกลางวัน ณ ภัตตาคาร Ke Jia Huang Zi Restaurant</p>
+          <div class="meal-card rounded-lg p-3 mt-2 text-xs">
+           <p class="font-medium text-brand-dark mb-1">📋Menu:</p>
+           <p>วุ้นเส้นแห้งผัดหม้อดิน, ถั่วลันเตาผัดหมูหมักตากแห้ง, ซุปหมูสไตล์ฮากกา, ซุปไก่ใส่บวบและลูกชิ้นปลายัดไส้, หมูสามชั้นตุ๋นซีอิ๊ว, เป็ดย่างปักกิ่ง, เต้าหู้ยัดไส้สไตล์ฮากกา, ผักสดผัดกระเทียม, ซาลาเปาทอดไส้หมู, ไข่เจียว, ข้าวสวย, เบียร์ 2 ขวด, น้ำอัดลม 1 ขวด, ผลไม้รวม </p>        
+          <div class="img-slider">
+            <div class="img-slider-track">
+              <div class="img-slide"><img src="https://ak-d.tripcdn.com/images/1mc1l12000lo5cbb6D458_W_750_1624_R5.jpg" loading="lazy" alt="Hida Takayama 1"></div>
+              <div class="img-slide"><img src="https://cdn.myfunnow.com/imgs/product/cover/1080x600_caa80a.jpg" loading="lazy" alt="Hida Takayama 2"></div>              
+            </div>
+            <div class="img-slider-dots"><span class="active"></span><span></span></div>
+            <div class="img-slider-counter">1/2</div>
+            </div><!-- /img-slider -->
+           </div><!-- /meal-card -->
+          </div><!-- /text-sm -->
+         </div><!-- /relative -->
+
+        <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <div class="text-sm">
+          <p class="font-semibold">Lenovo South Smart Campus (LSSC) </p>
+          <p class="text-subtle mt-1">คณะศึกษาดูงาน Lenovo South Smart Campus (LSSC) ฐานการผลิตอัจฉริยะและศูนย์กลางนวัตกรรมระดับโลกแห่งใหม่ของ Lenovo ไฮไลต์สำคัญคือการเป็นโรงงานอัจฉริยะ (Smart Factory) ต้นแบบยุคอุตสาหกรรม 4.0 ที่เน้นผลิตเซิร์ฟเวอร์และอุปกรณ์ไอทีระดับสูง โดยโดดเด่นด้านการใช้หุ่นยนต์และระบบอัตโนมัติขั้นสูง เทคโนโลยีจำลองโมเดลเสมือนจริง (Digital Twin) และระบบการผลิตที่ยืดหยุ่นสูงเพื่อรองรับคำสั่งซื้อเฉพาะทาง</p>
+          <div class="img-slider">
+            <div class="img-slider-track">
+              <div class="img-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs6Gng85pWJZCzXcruzkLmmjRTq9-W0jXKTmV2n5EVP0ZOzucUpjO3Jrpb&s=10" loading="lazy" alt="Hida Takayama 1"></div>
+              <div class="img-slide"><img src="https://media.lenovonews.fiestic.com/2023/07/08024429/6-Lenovos-Hungarian-factory-general-1024x683.jpg" loading="lazy" alt="Hida Takayama 2"></div>              
+            </div>
+            <div class="img-slider-dots"><span class="active"></span><span></span></div>
+            <div class="img-slider-counter">1/2</div>
+            </div><!-- /img-slider -->
+           </div><!-- /meal-card -->
+          </div><!-- /text-sm -->
+         </div><!-- /relative -->
+
+<div class="relative">
+  <div class="timeline-dot absolute -left-[31px] top-1"></div>
+  <div class="text-sm">
+    <p class="font-semibold">🛍️ ถนนคนเดินตงเหมิน (Dongmen Pedestrian Street)</p>
+    <p class="text-subtle mt-1">อิสระช้อปปิ้ง ถนนคนเดินตงเหมิน (Dongmen Pedestrian Street) เป็นศูนย์รวมแห่งการช้อปปิ้งสินค้ามากมายภายในประเทศ ที่นี่นับว่าเป็นสถานที่ที่นักท่องเที่ยวนิยมมาช้อปปิ้งและเป็นทั้งถนนและตลาดชื่อดังของเซินเจิ้น จะมีสินค้ามากมายให้ทุกท่านได้เลือกชม</p>
+    <div class="img-slider">
+      <div class="img-slider-track">
+        <div class="img-slide"><img src="https://res.klook.com/image/upload/fl_lossy.progressive,w_1200,h_630,c_fill,q_85/dongmen-street-1_m92c1a.jpg" loading="lazy" alt="University of Milan 1"></div>
+        <div class="img-slide"><img src="https://static.vecteezy.com/system/resources/previews/022/023/280/large_2x/shenzhen-china-apr-08-2017-shoppers-and-visitors-crowd-the-famous-dongmen-pedestrian-street-dongmen-is-a-shopping-area-and-subdistrict-within-luohu-district-of-shenzhen-on-april-08-2017-free-photo.JPG" loading="lazy" alt="University of Milan 2"></div>
+      </div>
+      <div class="img-slider-dots"><span class="active"></span><span></span></div>
+      <div class="img-slider-counter">1/2</div>
+    </div>
+  </div>
+</div>
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🍽️ รับประทานอาหารค่ำ ณ ภัตตาคาร Hai Di Lao Shabu</p>
+          <div class="mt-3">
+           <img src="https://themomentum.co/wp-content/uploads/2019/10/TheMo_Haidilao-content06.jpg" loading="lazy" class="tour-img" alt="Garuda Wisnu Kencana">
+          </div>
+         </div>
+         </div>
+
+       </div>
+       <div class="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs flex items-center gap-2">
+        <span>🏨</span> <strong>นำคณะเข้าสู่ที่พัก Hampton by Hilton Shenzhen Dongmen ★★★★</strong>
+       </div>
+      </div>
+     </div><!-- /day-4 -->
+
+<!-- ===== DAY 5 ===== -->
+<div id="day-5" class="day-content" style="display:none;">
+      <div class="day-card bg-white rounded-2xl p-6 shadow-sm border border-brand/10">
+       <div class="flex items-center gap-3 mb-4">
+        <span class="bg-brand text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">5</span>
+        <div>
+         <h3 class="font-semibold text-lg">วันเสาร์ที่ 28 พฤศจิกายน 2569</h3>
+         <p class="text-sm text-subtle"> เซินเจิ้น → ฮ่องกง → กรุงเทพฯ </p>
+        </div>
+        <span class="ml-auto text-2xl">⛪</span>
+       </div>
+       <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
+
+        <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <div class="text-sm">
+          <p class="font-semibold">🚌 ฮ่องกง (Hongkong)</p>
+          <p class="text-subtle mt-1">เดินทางสู่ ฮ่องกง (ใช้เวลาเดินทางประมาณ 1 ชั่วโมง) โดยรถโค้ช เป็นศูนย์กลางทางการเงิน การค้า และโลจิสติกส์ที่สำคัญของโลก เป็นที่ตั้งของตลาดหุ้นฮ่องกง ซึ่งเป็นตลาดหุ้นที่ใหญ่เป็นอันดับ 7 ของโลก และท่าเรือฮ่องกง ซึ่งเป็นท่าเรือที่ใหญ่ที่สุดในโลกในด้านปริมาณการขนส่งสินค้าผ่านแดน
+        </div>
+        </div>
+
+        <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <div class="text-sm">
+          <p class="font-semibold">🙏🏻 วัดเจ้าแม่กวนอิม ฮงฮำ (Hung Hom Kwun Yam Temple)</p>
+          <p class="text-subtle mt-1">สักการะ ณ วัดเจ้าแม่กวนอิม ฮงฮำ (Hung Hom Kwun Yam Temple) เป็นวัดเจ้าแม่กวนอิมที่มีชื่อเสียงและเก่าแก่ที่สุดแห่งหนึ่งในฮ่องกง สร้างขึ้นในปี ค.ศ. 1873 ขึ้นชื่ออย่างมากในเรื่องการขอพรด้านโชคลาภ เงินทอง และการขอกู้เงินจากเจ้าแม่กวนอิม ผู้คนจะนิยมมาทำพิธี "ยืมเงินเจ้าแม่กวนอิม" เพื่อความเป็นสิริมงคล เสริมดวงการค้าขาย และโชคลาภ
+    <div class="img-slider">
+      <div class="img-slider-track">
+        <div class="img-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScA1yG4DQ2qrCkMH5pvQLaN6B8oTTdC8tBG1gj17Q6IR5c2bDTuPuUOiK1&s=10" loading="lazy" alt="University of Milan 1"></div>
+        <div class="img-slide"><img src="https://www.travelzeed.com/content/wp-content/uploads/2024/12/Kwun-Yum-Temple2.webp" loading="lazy" alt="University of Milan 2"></div>
+      </div>
+      <div class="img-slider-dots"><span class="active"></span><span></span></div>
+      <div class="img-slider-counter">1/2</div>
+    </div>
+  </div>
+</div>
+
+      <div class="relative">
+        <div class="timeline-dot absolute -left-[31px] top-1"></div>
+        <div class="text-sm">
+          <p class="font-semibold">🍽️ รับประทานอาหารค่ำ ณ ภัตตาคาร Jasmine (Tung Chung) - Dim Sum</p>
+          <div class="img-slider">
+            <div class="img-slider-track">
+              <div class="img-slide"><img src="https://framerusercontent.com/images/ZqY2LARZ1cG6Tx1RKxVEz6SI.jpg?width=1600&height=1066" loading="lazy" alt="Hida Takayama 1"></div>
+              <div class="img-slide"><img src="https://framerusercontent.com/images/Pw5PdSNavK1c95CNXvSbMLmdMQ.jpg?width=1600&height=1066" loading="lazy" alt="Hida Takayama 2"></div>              
+            </div>
+            <div class="img-slider-dots"><span class="active"></span><span></span></div>
+            <div class="img-slider-counter">1/2</div>
+            </div><!-- /img-slider -->
+          </div><!-- /text-sm -->
+         </div><!-- /relative -->
+
+        <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <div class="text-sm">
+          <p class="text-subtle mt-1">เดินทางสู่ สนามบินฮ่องกง (Hong Kong International Airport)
+        </div>
+
+        <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <p class="text-sm"><span class="font-semibold text-brand">18:55 น.</span> — 🛫 ออกเดินทางสู่ สนามบินสุวรรณภูมิ โดยสายการบินไทย เที่ยวบินที่ TG 639</p>
+        </div>
+
+         <div class="relative">
+         <div class="timeline-dot absolute -left-[31px] top-1"></div>
+         <p class="text-sm"><span class="font-semibold text-brand">20:40 น.</span> — 🛬 เดินทางถึง สนามบินสุวรรณภูมิ โดยสวัสดิภาพ</p>
+        </div>
+      </div>
+    </section>
+
+<!-- ========== COUNTRY INFO ========== -->
+<section id="sec-country" class="tab-section fade-in">
+  <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-dark mb-6">🌎 ข้อมูลประเทศจีนและฮ่องกง</h2>
+ 
+  <div class="grid md:grid-cols-2 gap-4 mb-6">
+    <div class="bg-brand-50 rounded-2xl p-5 border border-brand/10">
+      <h3 class="font-semibold text-brand-dark mb-3 text-lg">🇨🇳 สาธารณรัฐประชาชนจีน (กวางโจว / เซินเจิ้น)</h3>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between"><span class="text-subtle">เมืองหลวง</span><span class="font-medium">ปักกิ่ง</span></div>
+        <div class="flex justify-between"><span class="text-subtle">ภาษา</span><span class="font-medium">จีนกลาง (กวางตุ้งในท้องถิ่น)</span></div>
+        <div class="flex justify-between"><span class="text-subtle">สกุลเงิน</span><span class="font-medium">หยวน (CNY / ¥)</span></div>
+        <div class="flex justify-between"><span class="text-subtle">เวลาท้องถิ่น</span><span class="font-medium">GMT+8 (เร็วกว่าไทย 1 ชม.)</span></div>
+        <div class="flex justify-between"><span class="text-subtle">ปลั๊กไฟ</span><span class="font-medium">Type A/C/I (220V / 50Hz)</span></div>
+        <div class="flex justify-between"><span class="text-subtle">เบอร์ฉุกเฉิน</span><span class="font-medium">ตำรวจ 110 / ฉุกเฉินแพทย์ 120 / ดับเพลิง 119</span></div>
+      </div>
+    </div>
+    <div class="bg-brand-50 rounded-2xl p-5 border border-brand/10">
+      <h3 class="font-semibold text-brand-dark mb-3 text-lg">🇭🇰 เขตบริหารพิเศษฮ่องกง</h3>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between"><span class="text-subtle">ภาษา</span><span class="font-medium">กวางตุ้ง / อังกฤษ</span></div>
+        <div class="flex justify-between"><span class="text-subtle">สกุลเงิน</span><span class="font-medium">ดอลลาร์ฮ่องกง (HKD / HK$)</span></div>
+        <div class="flex justify-between"><span class="text-subtle">เวลาท้องถิ่น</span><span class="font-medium">GMT+8 (เร็วกว่าไทย 1 ชม.)</span></div>
+        <div class="flex justify-between"><span class="text-subtle">ปลั๊กไฟ</span><span class="font-medium">Type G สามขาแบน (220V / 50Hz)</span></div>
+        <div class="flex justify-between"><span class="text-subtle">ประชากร</span><span class="font-medium">~7.5 ล้านคน</span></div>
+        <div class="flex justify-between"><span class="text-subtle">เบอร์ฉุกเฉิน</span><span class="font-medium">999</span></div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="bg-brand-50 rounded-2xl p-5 border border-brand/10 mb-6">
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+      <h3 class="font-semibold text-brand-dark text-lg">💱 อัตราแลกเปลี่ยนโดยประมาณ</h3>
+      <span class="text-xs bg-white/70 border border-brand/20 text-brand-dark rounded-full px-3 py-1">🔄 อัปเดตล่าสุด 9 พ.ย. 2569</span>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 text-sm">
+      <div>
+        <p class="font-semibold text-brand mb-2">🇨🇳 หยวน (CNY) — กวางโจว / เซินเจิ้น</p>
+        <div class="space-y-2">
+          <div class="flex justify-between"><span class="text-subtle">1 CNY ≈</span><span class="font-medium">~5.05 บาท</span></div>
+          <div class="flex justify-between"><span class="text-subtle">10 CNY ≈</span><span class="font-medium">~50.5 บาท</span></div>
+          <div class="flex justify-between"><span class="text-subtle">100 CNY ≈</span><span class="font-medium">~505 บาท</span></div>
+          <div class="flex justify-between"><span class="text-subtle">500 CNY ≈</span><span class="font-medium">~2,525 บาท</span></div>
+          <div class="flex justify-between"><span class="text-subtle">1,000 CNY ≈</span><span class="font-medium">~5,050 บาท</span></div>
+        </div>
+        <p class="text-xs text-subtle mt-2">📈 ช่วง 30 วันที่ผ่านมาเคลื่อนไหวราว 4.90 – 5.02 บาท/CNY (หยวนแข็งค่าขึ้นเมื่อเทียบกับต้นปี)</p>
+      </div>
+      <div>
+        <p class="font-semibold text-brand mb-2">🇭🇰 ดอลลาร์ฮ่องกง (HKD) — ฮ่องกง</p>
+        <div class="space-y-2">
+          <div class="flex justify-between"><span class="text-subtle">1 HKD ≈</span><span class="font-medium">~4.28 บาท</span></div>
+          <div class="flex justify-between"><span class="text-subtle">10 HKD ≈</span><span class="font-medium">~42.8 บาท</span></div>
+          <div class="flex justify-between"><span class="text-subtle">100 HKD ≈</span><span class="font-medium">~428 บาท</span></div>
+          <div class="flex justify-between"><span class="text-subtle">500 HKD ≈</span><span class="font-medium">~2,140 บาท</span></div>
+          <div class="flex justify-between"><span class="text-subtle">1,000 HKD ≈</span><span class="font-medium">~4,280 บาท</span></div>
+        </div>
+        <p class="text-xs text-subtle mt-2">📊 ค่าประมาณจากอัตราล่าสุดที่หาได้ (~4.24–4.27 ช่วง มิ.ย.–ก.ค.) ปรับตามทิศทางหยวน/ดอลลาร์ ควรเช็กอีกครั้งก่อนแลก</p>
+      </div>
+    </div>
+    <div class="mt-3 grid md:grid-cols-2 gap-3 text-xs">
+      <div class="bg-white/60 rounded-lg p-3 text-subtle">💡 <strong>เทียบราคาง่ายๆ (โดยประมาณ):</strong> รถไฟฟ้า/เมโทรจีน ¥3–8 (≈ 15–40 บาท) • กาแฟ ¥15–30 (≈ 75–150 บาท) • อาหารจานเดียว ¥25–50 (≈ 125–250 บาท) • ฮ่องกง: กาแฟ HK$35–50 (≈ 150–215 บาท) อาหารจานเดียว HK$60–100 (≈ 260–430 บาท)</div>
+      <div class="bg-white/60 rounded-lg p-3 text-subtle">💳 <strong>แนะนำ:</strong> ในจีนนิยมจ่ายผ่าน Alipay / WeChat Pay (ผูกบัตรต่างประเทศได้ แต่ควรตั้งค่าล่วงหน้า) ควรมีเงินสดหยวนติดตัวบางส่วน ส่วนฮ่องกงรับบัตรเครดิตเกือบทุกที่ <strong>อัตราข้างต้นเป็นอัตรากลางตลาด (mid-market) อัตราซื้อของธนาคาร/ร้านแลกเงินจะต่างออกไป กรุณาตรวจสอบอีกครั้งก่อนเดินทาง</strong></div>
+    </div>
+  </div>
+ 
+  <div class="mt-6 bg-brand-50 rounded-2xl p-5 border border-brand/10">
+    <h4 class="font-semibold text-brand-dark mb-3">🛂 การเข้าเมืองและข้อควรรู้</h4>
+    <ul class="text-sm text-subtle space-y-2">
+      <li>• <strong>วีซ่า:</strong> หนังสือเดินทางไทยได้รับการยกเว้นวีซ่าสำหรับท่องเที่ยว/ธุรกิจระยะสั้นทั้งจีนและฮ่องกง (ปัจจุบันจีน 30 วัน) พาสปอร์ตต้องมีอายุเหลือเกิน 6 เดือน — โปรดตรวจสอบเงื่อนไขล่าสุดกับบริษัทก่อนเดินทาง</li>
+      <li>• <strong>การข้ามด่านเซินเจิ้น → ฮ่องกง:</strong> ต้องผ่านตรวจคนเข้าเมืองทั้งสองฝั่ง พกพาสปอร์ตติดตัวตลอดวัน และรอตามหัวหน้าทัวร์</li>
+      <li>• <strong>อินเทอร์เน็ตในจีน:</strong> Google, LINE, Facebook, Instagram, YouTube ใช้ไม่ได้โดยตรง แนะนำเปิดโรมมิ่งจากไทยหรือซื้อ eSIM ที่ออกอินเทอร์เน็ตนอกจีน และโหลดแผนที่/ใช้ WeChat ไว้ล่วงหน้า</li>
+      <li>• <strong>สายด่วนกรมการกงสุล (ไทย):</strong> +66 2 572 8442 ตลอด 24 ชม.</li>
+    </ul>
+  </div>
+ 
+  <div class="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-5">
+    <h4 class="font-semibold text-amber-800 mb-3">⚠️ มารยาทและข้อควรระวัง</h4>
+    <ul class="text-sm text-amber-700 space-y-2">
+      <li>• <strong>วัด:</strong> วัดต้าฝอและวัดกวนอิม ฮงฮำ ควรแต่งกายสุภาพ ไม่ใส่เสื้อแขนกุดหรือกางเกงสั้นมาก</li>
+      <li>• <strong>ทิป:</strong> ในจีนไม่มีธรรมเนียมให้ทิป ส่วนฮ่องกงร้านอาหารมักคิดค่าบริการ 10% ในบิลแล้ว</li>
+      <li>• <strong>ระวังกระเป๋า:</strong> ย่านช้อปปิ้งคนพลุกพล่าน เช่น ถนนปักกิ่งและตงเหมิน ควรสะพายกระเป๋าด้านหน้า</li>
+    </ul>
+  </div>
+ 
+  <div class="grid md:grid-cols-2 gap-4 mt-6">
+    <div class="bg-brand-50 rounded-2xl p-5 border border-brand/10">
+      <h4 class="font-semibold text-brand-dark mb-3">🗣️ คำศัพท์พื้นฐาน (จีนกลาง)</h4>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+        <div class="bg-white/60 rounded-lg p-2"><span class="font-medium">你好 (หนี่ห่าว)</span><span class="text-subtle"> — สวัสดี</span></div>
+        <div class="bg-white/60 rounded-lg p-2"><span class="font-medium">谢谢 (เซี่ยเซี่ย)</span><span class="text-subtle"> — ขอบคุณ</span></div>
+        <div class="bg-white/60 rounded-lg p-2"><span class="font-medium">多少钱? (ตัวเสาเฉียน)</span><span class="text-subtle"> — เท่าไหร่?</span></div>
+        <div class="bg-white/60 rounded-lg p-2"><span class="font-medium">买单 (หม่ายตาน)</span><span class="text-subtle"> — เช็คบิล</span></div>
+        <div class="bg-white/60 rounded-lg p-2"><span class="font-medium">厕所在哪里? (ชื่อสั่วไจ้หนาหลี่)</span><span class="text-subtle"> — ห้องน้ำอยู่ไหน?</span></div>
+        <div class="bg-white/60 rounded-lg p-2"><span class="font-medium">不要辣 (ปู๋เย่าล่า)</span><span class="text-subtle"> — ไม่เผ็ด</span></div>
+      </div>
+      <p class="text-xs text-subtle mt-3">💡 ที่ฮ่องกงสื่อสารภาษาอังกฤษได้ในแหล่งท่องเที่ยว ส่วนในจีนแนะนำให้มีแอปแปลภาษาที่ใช้ออฟไลน์ได้</p>
+    </div>
+    <div class="bg-brand-50 rounded-2xl p-5 border border-brand/10">
+      <h4 class="font-semibold text-brand-dark mb-3">📱 การเตรียมอุปกรณ์</h4>
+      <ul class="text-sm text-subtle space-y-2">
+        <li>• <strong>ปลั๊กไฟ:</strong> จีนใช้ A/C/I (ปลั๊กแบนสองขาของไทยส่วนใหญ่เสียบได้) ฮ่องกงใช้ Type G สามขาแบน ควรพกอะแดปเตอร์อเนกประสงค์ 1 ตัว</li>
+        <li>• <strong>Wi-Fi:</strong> โรงแรมมี Wi-Fi แต่แอปบางตัวต้องใช้เน็ตโรมมิ่งหรือ eSIM</li>
+        <li>• <strong>พาวเวอร์แบงค์:</strong> ต้องอยู่ในกระเป๋าถือ (ไม่ใส่กระเป๋าโหลด) และมีป้ายระบุความจุตามเกณฑ์สายการบิน</li>
+      </ul>
+    </div>
+  </div>
+</section>
+ 
+<!-- ========== WEATHER ========== -->
+<section id="sec-weather" class="tab-section fade-in">
+  <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-dark mb-2">🌤️ สภาพอากาศ</h2>
+  <p class="text-sm text-subtle mb-2">ประมาณการจากค่าเฉลี่ยภูมิอากาศปลายเดือนพฤศจิกายนของกวางโจว เซินเจิ้น และฮ่องกง (วันเดินทางยังอยู่นอกช่วงพยากรณ์รายวัน) • อ้างอิงเพิ่มเติม: <a href="https://www.hko.gov.hk/en/wxinfo/currwx/fnd.htm" target="_blank" rel="noopener noreferrer" class="text-brand underline">พยากรณ์ 9 วัน หอสังเกตการณ์ฮ่องกง</a> • <a href="https://www.accuweather.com" target="_blank" rel="noopener noreferrer" class="text-brand underline">accuweather.com</a></p>
+  <div class="inline-flex items-center gap-2 text-xs bg-brand-50 border border-brand/20 text-brand-dark rounded-full px-3 py-1 mb-6">🔄 อัปเดตล่าสุด 9 พ.ย. 2569</div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+    <div class="bg-white border border-brand/10 rounded-2xl p-4 card-hover text-center">
+      <p class="text-xs text-subtle">24 พ.ย. (วันที่ 1)</p>
+      <p class="font-semibold text-sm">กวางโจว</p>
+      <div class="weather-icon my-2">⛅</div>
+      <p class="text-2xl font-bold text-brand-dark">24°<span class="text-base font-normal text-subtle">/15°C</span></p>
+      <p class="text-xs text-subtle mt-1">แดดสลับเมฆ อากาศแห้ง โอกาสฝนประมาณ 1 ใน 4</p>
+      <p class="text-[11px] text-subtle mt-2">✈️ ถึง 13:20 น. เย็นลงช่วงเย็น เตรียมเสื้อคลุมบางๆ สำหรับเดินถนนคนเดิน</p>
+    </div>
+    <div class="bg-white border border-brand/10 rounded-2xl p-4 card-hover text-center">
+      <p class="text-xs text-subtle">25 พ.ย. (วันที่ 2)</p>
+      <p class="font-semibold text-sm">กวางโจว → เซินเจิ้น</p>
+      <div class="weather-icon my-2">🌤️</div>
+      <p class="text-2xl font-bold text-brand-dark">25°<span class="text-base font-normal text-subtle">/16°C</span></p>
+      <p class="text-xs text-subtle mt-1">แดดค่อนข้างดี ฝนน้อย เช้ากวางโจวเย็น บ่ายเซินเจิ้นอุ่นขึ้น</p>
+    </div>
+    <div class="bg-white border border-brand/10 rounded-2xl p-4 card-hover text-center">
+      <p class="text-xs text-subtle">26 พ.ย. (วันที่ 3)</p>
+      <p class="font-semibold text-sm">เซินเจิ้น</p>
+      <div class="weather-icon my-2">☀️</div>
+      <p class="text-2xl font-bold text-brand-dark">25°<span class="text-base font-normal text-subtle">/18°C</span></p>
+      <p class="text-xs text-subtle mt-1">แจ่มใส อากาศสบาย</p>
+    </div>
+    <div class="bg-white border border-brand/10 rounded-2xl p-4 card-hover text-center">
+      <p class="text-xs text-subtle">27 พ.ย. (วันที่ 4)</p>
+      <p class="font-semibold text-sm">เซินเจิ้น</p>
+      <div class="weather-icon my-2">🌤️</div>
+      <p class="text-2xl font-bold text-brand-dark">24°<span class="text-base font-normal text-subtle">/18°C</span></p>
+      <p class="text-xs text-subtle mt-1">แดดสลับเมฆ ลมเย็นเล็กน้อย</p>
+      <p class="text-[11px] text-subtle mt-2">🛍️ ช้อปปิ้งตงเหมินช่วงเย็นอากาศเย็นสบาย</p>
+    </div>
+    <div class="bg-white border border-brand/10 rounded-2xl p-4 card-hover text-center">
+      <p class="text-xs text-subtle">28 พ.ย. (วันที่ 5)</p>
+      <p class="font-semibold text-sm">เซินเจิ้น → ฮ่องกง</p>
+      <div class="weather-icon my-2">🌤️</div>
+      <p class="text-2xl font-bold text-brand-dark">24°<span class="text-base font-normal text-subtle">/18°C</span></p>
+      <p class="text-xs text-subtle mt-1">แดดสลับเมฆ แห้งและสบาย</p>
+      <p class="text-[11px] text-subtle mt-2">🛫 ขึ้นเครื่อง 18:55 น. ในเครื่องแอร์เย็น พกเสื้อคลุมบาง</p>
+    </div>
+  </div>
+
+  <div class="mt-2 bg-brand-50 border border-brand/10 rounded-2xl p-5">
+    <h4 class="font-semibold text-brand-dark mb-3">📊 สรุปอากาศช่วง 24–28 พฤศจิกายน 2569</h4>
+    <div class="grid md:grid-cols-2 gap-4 text-sm">
+      <div>
+        <p class="font-medium">🌡️ อุณหภูมิและท้องฟ้า</p>
+        <p class="text-subtle mt-1">กลางวันประมาณ 24–25°C กลางคืนประมาณ 15–18°C (กวางโจวเย็นกว่าเซินเจิ้นและฮ่องกงเล็กน้อย) ท้องฟ้าโปร่ง แดดดี ความชื้นต่ำกว่าฤดูร้อน เป็นช่วงต้นฤดูหนาวที่อากาศสบายที่สุดของภูมิภาคนี้</p>
+      </div>
+      <div>
+        <p class="font-medium">🌧️ ฝนและมวลอากาศเย็น</p>
+        <p class="text-subtle mt-1">พฤศจิกายนเป็นเดือนที่แห้งที่สุดเดือนหนึ่ง โอกาสฝนต่ำ แต่หากมีมวลอากาศเย็นจากทางเหนือเข้ามา อุณหภูมิกลางคืนอาจลดลงถึง 12–14°C ที่กวางโจวได้ชั่วคราว พร้อมฝนปรอยบางช่วง</p>
+      </div>
+    </div>
+    <div class="mt-3 bg-white border border-brand/10 rounded-xl p-3 text-xs text-subtle">
+      <p>🆕 <strong>ความเคลื่อนไหวล่าสุด (ต้น พ.ย.):</strong> หอสังเกตการณ์ฮ่องกงรายงานว่า ต.ค. 2569 เป็นเดือนตุลาคมที่อุ่นที่สุดเท่าที่เคยบันทึกมา แต่มรสุมตะวันออกเฉียงเหนือกำลังแรงขึ้นและเริ่มทำให้อากาศเย็นลงตั้งแต่ราววันที่ 9–11 พ.ย. แสดงว่ามวลอากาศเย็นเริ่มเข้ามาถี่ขึ้นแล้ว ควรเผื่อเสื้อคลุมไว้เสมอ</p>
+    </div>
+    <div class="mt-3 bg-blue-50 border border-blue-100 rounded-xl p-3 text-xs text-blue-700 flex items-start gap-2">
+      <span>🌡️</span>
+      <span>วันเดินทางยังอยู่นอกช่วงพยากรณ์รายวัน (พยากรณ์ 9 วันของฮ่องกงจะครอบคลุมวันที่ 24 พ.ย. ตั้งแต่ราววันที่ 15 พ.ย. และครอบคลุมถึงวันที่ 28 พ.ย. ตั้งแต่ราววันที่ 19 พ.ย.) ตัวเลขข้างต้นเป็นค่าเฉลี่ยตามฤดูกาลของแต่ละเมือง ไม่ใช่ค่าพยากรณ์จริง กรุณาตรวจสอบพยากรณ์ล่าสุดที่หอสังเกตการณ์ฮ่องกงหรือ accuweather.com อีกครั้งก่อนเดินทาง 3–5 วัน</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CLOTHING ========== -->
+<section id="sec-clothing" class="tab-section fade-in">
+  <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-dark mb-2">👔 คำแนะนำการแต่งกาย</h2>
+  <div class="inline-flex items-center gap-2 text-xs bg-brand-50 border border-brand/20 text-brand-dark rounded-full px-3 py-1 mb-6">อัปเดตตามสภาพอากาศ ณ วันที่ 9 พ.ย. 2569</div>
+
+  <div class="bg-brand-50 rounded-2xl p-5 border border-brand/10 mb-6">
+    <h3 class="font-semibold text-brand-dark mb-2">🌡️ สภาพอากาศโดยรวม</h3>
+    <p class="text-sm text-subtle">ปลายเดือนพฤศจิกายนที่กวางโจว เซินเจิ้น และฮ่องกง กลางวัน 24–25°C กลางคืน 15–18°C อากาศแห้งสบาย ไม่ถึงขั้นหนาว เหมาะกับเสื้อแขนยาวบางหรือเสื้อยืดกับเสื้อคลุมบางๆ ไม่จำเป็นต้องใช้เสื้อโค้ทหนา แต่ควรมีเสื้อคลุมสำหรับเช้า–เย็นและในอาคารที่เปิดแอร์เย็น และเผื่อกรณีมีมวลอากาศเย็นเข้ามา ซึ่งกลางคืนที่กวางโจวอาจลดลงเหลือ 12–14°C ชั่วคราว</p>
+  </div>
+
+  <div class="bg-white border border-brand/10 rounded-2xl p-5 mb-6">
+    <h4 class="font-semibold text-brand-dark mb-3">🧅 หลักการแต่งตัว 2–3 ชั้น (Layering)</h4>
+    <div class="grid md:grid-cols-3 gap-3 text-sm">
+      <div class="bg-brand-50 rounded-xl p-3">
+        <p class="font-medium text-brand-dark">ชั้นที่ 1 — ชั้นใน</p>
+        <p class="text-xs text-subtle mt-1">เสื้อยืดหรือเสื้อเชิ้ตแขนยาวบาง เนื้อผ้าระบายอากาศ ช่วงบ่ายแดดอุ่นใส่สบาย</p>
+      </div>
+      <div class="bg-brand-50 rounded-xl p-3">
+        <p class="font-medium text-brand-dark">ชั้นที่ 2 — ชั้นให้ความอบอุ่น</p>
+        <p class="text-xs text-subtle mt-1">คาร์ดิแกน เสื้อไหมพรมบาง หรือเบลเซอร์ ถอดใส่ง่ายเมื่อเข้าอาคารหรือขึ้นรถโค้ช</p>
+      </div>
+      <div class="bg-brand-50 rounded-xl p-3">
+        <p class="font-medium text-brand-dark">ชั้นที่ 3 — ชั้นนอก (ตามต้องการ)</p>
+        <p class="text-xs text-subtle mt-1">แจ็คเก็ตบางกันลม ใช้ตอนเช้า ช่วงเย็น และเมื่อมีมวลอากาศเย็น <strong>ไม่ต้องใช้เสื้อกันหนาวหนา</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4 mb-6">
+    <div class="bg-white border border-brand/10 rounded-2xl p-5 card-hover">
+      <h4 class="font-semibold text-brand-dark mb-3">🧥 เสื้อผ้าหลักที่ต้องเตรียม</h4>
+      <ul class="text-sm space-y-2">
+        <li class="flex items-start gap-2"><span>👕</span> เสื้อยืด/เสื้อเชิ้ตแขนยาวบาง 4–5 ตัว</li>
+        <li class="flex items-start gap-2"><span>🧥</span> คาร์ดิแกนหรือเสื้อแจ็คเก็ตบางกันลม 1–2 ตัว (เลือกตัวที่กันลมได้ เผื่อคืนที่เย็นลงถึง 12–14°C)</li>
+        <li class="flex items-start gap-2"><span>👖</span> กางเกงขายาวผ้าบาง/ยีนส์ (ไม่แนะนำกางเกงขาสั้นเมื่อเข้าวัดและโรงงาน)</li>
+        <li class="flex items-start gap-2"><span>👟</span> รองเท้าผ้าใบหรือรองเท้าหุ้มส้นเดินสบาย</li>
+        <li class="flex items-start gap-2"><span>🧦</span> ถุงเท้า</li>
+        <li class="flex items-start gap-2"><span>🕶️</span> แว่นกันแดด / หมวก / ครีมกันแดด แดดช่วงกลางวันยังแรง</li>
+        <li class="flex items-start gap-2"><span>☂️</span> ร่มพับเล็ก 1 คัน เผื่อฝนปรอยบางช่วง</li>
+      </ul>
+    </div>
+    <div class="bg-white border border-brand/10 rounded-2xl p-5 card-hover">
+      <h4 class="font-semibold text-brand-dark mb-3">🙏 เมื่อเข้าวัด</h4>
+      <ul class="text-sm space-y-2">
+        <li class="flex items-start gap-2"><span>🛕</span> วัดต้าฝอ (วันที่ 1) และวัดกวนอิม ฮงฮำ (วันที่ 5) แต่งกายสุภาพ ปิดไหล่และเข่า</li>
+        <li class="flex items-start gap-2"><span>🪪</span> พกพาสปอร์ตหรือสำเนาติดตัวสำหรับลงทะเบียนเข้าพื้นที่</li>
+        <li class="flex items-start gap-2"><span>🍲</span> วันที่ 4 มื้อค่ำร้านหม้อไฟไห่ตี่เหลา กลิ่นอาหารติดเสื้อ ควรเลือกชุดที่ซักง่าย</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="font-semibold text-brand-dark text-lg mb-3">📅 แนะนำการแต่งกายตามรายวัน</h3>
+  <div class="space-y-3">
+    <div class="bg-white border-l-4 border-brand rounded-r-xl p-4">
+      <p class="font-semibold text-sm">วันที่ 1 | 24 พ.ย. กรุงเทพฯ → กวางโจว (15–24°C · แดดสลับเมฆ)</p>
+      <p class="text-xs text-subtle mt-1">👕 แต่งกายสบายสำหรับเดินทาง / 🧥 พกเสื้อคลุมบางไว้ในกระเป๋าถือสำหรับบนเครื่องและช่วงเย็น (กวางโจวเป็นเมืองที่เย็นที่สุดในทริป) / 👟 รองเท้าเดินสบาย บ่ายเดินวัดต้าฝอและช้อปปิ้งถนนปักกิ่ง / 🙏 ปิดไหล่เข่าเมื่อเข้าวัด</p>
+    </div>
+    <div class="bg-white border-l-4 border-blue-400 rounded-r-xl p-4">
+      <p class="font-semibold text-sm">วันที่ 2 | 25 พ.ย. กวางโจว → เซินเจิ้น (16–25°C · แดดดี)</p>
+      <p class="text-xs text-subtle mt-1">👔 Smart casual สำหรับดูงาน Xpeng และ Midea / 👖 กางเกงขายาว / 👞 รองเท้าหุ้มส้น ไม่ใส่รองเท้าแตะ / 🧥 เสื้อคลุมบางสำหรับเช้าที่เย็น ห้องแอร์ และตอนนั่งรถโค้ชนาน</p>
+    </div>
+    <div class="bg-white border-l-4 border-teal-400 rounded-r-xl p-4">
+      <p class="font-semibold text-sm">วันที่ 3 | 26 พ.ย. เซินเจิ้น (18–25°C · แจ่มใส)</p>
+      <p class="text-xs text-subtle mt-1">👔 Business casual สำหรับ Tencent Binhai Towers และงาน CHTF / 👟 รองเท้านุ่มเดินสบาย เพราะเดินในศูนย์นิทรรศการหลายชั่วโมง / 🎒 กระเป๋าสะพายใบเล็กและบัตรลงทะเบียน</p>
+    </div>
+    <div class="bg-white border-l-4 border-orange-400 rounded-r-xl p-4">
+      <p class="font-semibold text-sm">วันที่ 4 | 27 พ.ย. เซินเจิ้น (18–24°C · แดดสลับเมฆ)</p>
+      <p class="text-xs text-subtle mt-1">👔 Business casual สำหรับ Huawei และ Lenovo / 🪪 พาสปอร์ตสำหรับลงทะเบียนเข้าพื้นที่ / 🛍️ ช้อปปิ้งตงเหมินช่วงเย็นลมเย็นเล็กน้อย พกเสื้อคลุมบาง</p>
+    </div>
+    <div class="bg-white border-l-4 border-red-400 rounded-r-xl p-4">
+      <p class="font-semibold text-sm">วันที่ 5 | 28 พ.ย. เซินเจิ้น → ฮ่องกง → กรุงเทพฯ (18–24°C · แห้งสบาย)</p>
+      <p class="text-xs text-subtle mt-1">👕 แต่งกายสบายสำหรับวันเดินทาง / 🙏 ปิดไหล่เข่าเมื่อสักการะวัดกวนอิม ฮงฮำ / 🛂 พกพาสปอร์ตตลอดเวลาเมื่อข้ามด่านไปฮ่องกง / 🧥 เสื้อคลุมบางไว้ใช้บนเครื่องบินที่แอร์เย็น</p>
+    </div>
+  </div>
+
+  <div class="mt-6 bg-blue-50 border border-blue-100 rounded-2xl p-4 text-xs text-blue-700">
+    🔄 คำแนะนำนี้อิงค่าเฉลี่ยภูมิอากาศเช่นเดียวกับแท็บสภาพอากาศ หากพยากรณ์ 9 วันของหอสังเกตการณ์ฮ่องกง (ตั้งแต่ราววันที่ 19 พ.ย.) ระบุว่ามีมวลอากาศเย็นหรือฝนในช่วงเดินทาง ให้เพิ่มแจ็คเก็ตกันลมและร่มก่อนจัดกระเป๋า
+  </div>
+
+  <div class="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-5">
+    <h4 class="font-semibold text-amber-800 mb-3">🎒 สิ่งที่ควรพกติดตัว</h4>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+      <div class="flex items-center gap-2"><span>🛂</span> พาสปอร์ต </div>
+      <div class="flex items-center gap-2"><span>🧥</span> เสื้อคลุม/แจ็คเก็ตบางกันลม</div>
+      <div class="flex items-center gap-2"><span>☂️</span> ร่มพับขนาดเล็ก</div>
+      <div class="flex items-center gap-2"><span>🔌</span> อะแดปเตอร์ปลั๊ก</div>
+      <div class="flex items-center gap-2"><span>💊</span> ยาประจำตัว</div>
+      <div class="flex items-center gap-2"><span>👟</span> รองเท้าเดินสบาย</div>
+      <div class="flex items-center gap-2"><span>💴</span> เงินสดหยวน/ดอลลาร์ฮ่องกง + บัตรเครดิต</div>
+      <div class="flex items-center gap-2"><span>📱</span> eSIM / โรมมิ่ง + Alipay/WeChat Pay</div>
+      <div class="flex items-center gap-2"><span>🧴</span> ครีมกันแดด / ลิปมัน</div>
+      <div class="flex items-center gap-2"><span>🕶️</span> แว่นกันแดด</div>
+      <div class="flex items-center gap-2"><span>🔋</span> พาวเวอร์แบงค์ </div>
+    </div>
+  </div>
+</section>
+    <!-- ========== PASSENGER ========== -->
+    <section id="sec-Passenger" class="tab-section fade-in">
+     <div style="background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%); border-radius: 1rem; padding: 1.25rem;" class="md:!p-8">
+      <div class="max-w-3xl mx-auto">
+       <header class="text-center mb-8 md:mb-10">
+        <div class="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);">
+         <i data-lucide="plane" style="width:16px;height:16px;color:#60a5fa;"></i>
+         <span class="text-xs font-semibold tracking-widest uppercase" style="color:#93c5fd;">Passenger name</span>
+        </div>
+        <h1 class="font-display text-2xl md:text-4xl font-bold text-white mt-3">รายชื่อผู้เดินทาง</h1>
+        <p class="mt-2 text-sm" style="color:#94a3b8;">ข้อมูลห้องพักของผู้เดินทาง</p>
+       </header>
+       <style>
+        .room-card { background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85)); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.6); transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 1rem; padding: 1.25rem; }
+        .room-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+        .badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+        .dietary-badge { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+        .dietary-badge2 { background: #c0392b; color: #ffffff; border: 1px solid #c0392b; }        
+        .dietary-badge3 { background: #20B2AA; color: #ffffff; border: 1px solid #20B2AA; }                
+        .dietary-badge4 { background: #1E9345; color: #ED1F26; border: 1px solid #1E9345; }               
+        .room-badge { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+        .room-badge2 { background: #FF99FF; color: #9900FF; border: 1px solid #FF99FF; }        
+        .room-badge3 { background: #99FFCC; color: #336600; border: 1px solid #99FFCC; }        
+        .guest-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
+        .guest-row + .guest-row { border-top: 1px dashed #e5e7eb; }
+        .avatar { width: 33px; height: 33px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; color: #fff; }
+       </style>
+       <div class="rooms-grid mb-6">
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 1</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#9933FF,#9900CC);">1</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. VIRAT CHATDARONG</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 2</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#B22222,#FF4500);">2</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. PHUWADON SUWANNATARA</p><p class="text-xs text-gray-400">ผู้เดินทาง</span><span class="badge dietary-badge"></i>🐟 ไม่ทานปลา</span><span class="badge dietary-badge"></i>💊 ความดันโลหิตสูง</span><span class="badge dietary-badge"></i>💊 โรคเบาหวาน</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 3</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#B22222,#FF00FF);">3</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS URAIPHAN SRICHAITHAMRONG</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 4</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#C71585,#B22222);">4</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. NAWANAT SOMNUEK</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 5</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF4500,#FF0000);">5</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. VIRAT CHAIADSAVANUN</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 6</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#000000,#7B68EE);">6</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. CHAIWAT TACHAWANTO</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 7</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF00FF,#00FF00);">7</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. MRS. TITHIMA LORHPIPAT</p><p class="text-xs text-gray-400">ผู้เดินทาง</span><span class="badge dietary-badge"></i>💊 ความดันโลหิตสูง</span><span class="badge dietary-badge"></i>🍣 ไม่ทานของดิบ</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 8</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FFD700,#228B22);">8</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MRS. PORNPANIT SRINOPARATWATANA</p><p class="text-xs text-gray-400">ผู้เดินทาง</span><span class="badge dietary-badge"></i>🍣 ไม่ทานดิบ</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 9</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room (2 Bed)</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#CD5C5C,#FFD700);">9</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. APICHAI SOMBOONPAKORN</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></span><span class="badge dietary-badge2"><i data-lucide="plane" style="width:12px;height:12px;"></i>ไปก่อนวันที่ 22/11/2026</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 10</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF1493,#D2B48C);">10</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. WATCHAROJ WELUKAMKUL</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 11</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#000099,#330033);">11</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. NOPPADOL KASIPOL</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></span><span class="badge dietary-badge"></i>🦐 ไม่ทานกุ้ง</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 12</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#2F4F4F,#483D8B);">12</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. PEERAPONG  PHOLPREECHA</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 13</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#0000FF,#32CD32);">13</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS PRINDA TANGPIROONTHUM</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 14</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#B8860B,#CD853F);">14</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. VORRAVUTH TANGPIROONTHUM</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 15</span>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FFA07A,#B03060);">15</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. PRADCHAYA THEPVORRACHAI</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></span></span><span class="badge dietary-badge2"><i data-lucide="plane" style="width:12px;height:12px;"></i>ไปก่อนวันที่ 22/11/2026</span></div></div></div>
+
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 16</span><span class="badge room-badge2"><i data-lucide="heart" style="width:12px;height:12px;"></i>Double Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF0000, #FFA500);">16</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. KANOKSILP PRAHARNPAP</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#8b5cf6, #6d28d9);">17</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MRS. DUANGNIT VATANASIN</p><p class="text-xs text-gray-400">ผู้เดินทาง</p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 17</span><span class="badge room-badge2"><i data-lucide="heart" style="width:12px;height:12px;"></i>Double Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#CD853F, #9ACD32);">18</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS SARUNYA PITAKSINAKORN</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#CD5C5C, #CD853F);">19</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS CHATCHADA SONGJARIN</p><p class="text-xs text-gray-400">ผู้เดินทาง</p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 18</span><span class="badge room-badge2"><i data-lucide="heart" style="width:12px;height:12px;"></i>Double Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#32CD32, #9ACD32);">20</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS NANTIYA DAMRONGSUTTIPONG</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></span></span></span><span class="badge dietary-badge2"><i data-lucide="plane" style="width:12px;height:12px;"></i>กลับวันที่ 1/12/2026</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#EEDD82, #CD853F);">21</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS VARALEE DAMRONGSUTTIPONG</p><p class="text-xs text-gray-400">ผู้เดินทาง</p></span></span></span><span class="badge dietary-badge2"><i data-lucide="plane" style="width:12px;height:12px;"></i>กลับวันที่ 1/12/2026</span></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 19</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FFCC00, #FF3300);">22</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. ANUSORN SAKOLPRAKAIKIJ</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#33CCFF, #3333FF);">23</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. PONGSAKORN POONPHICHAIDTHUM</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 20</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#32CD32, #FF3300);">24</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. ASSANEE  KIJPANICH</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF00FF, #3333FF);">25</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS PENPICHA KIJPANICH</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 21</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF1493, #FFC0CB);">26</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. JAROEN VONGVANICHPONG</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></span></span></span><span class="badge dietary-badge2"><i data-lucide="plane" style="width:12px;height:12px;"></i>กลับวันที่ 1/12/2026</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF00FF, #3333FF);">27</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. PAKKAPOL DAMRONGSUTTIPONG</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></span></span></span><span class="badge dietary-badge2"><i data-lucide="plane" style="width:12px;height:12px;"></i>กลับวันที่ 1/12/2026</span></p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 22</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#000000, #A52A2A);">28</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS HARUTAI  RUENGSOMBOON</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#7CFC00, #3333FF);">29</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS NARUMON SUKSAKULCHAI</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 23</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#000000, #DB7093);">30</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS BENJAWAN KIJPANICH</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF4500, #3333FF);">31</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS NONTHACHA DECHOTHUTBAWONDEH</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 24</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#F4A460, #DB7093);">32</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. SONGYOT PARADEE</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span><span class="badge dietary-badge"></i>💊 ความดันโลหิตสูง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#B03060, #3333FF);">33</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. NARONG TECHANIRUTSAI</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 25</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#A52A2A, #DB7093);">34</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS KANNIKA KAMNERDSING</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#EE82EE, #3333FF);">35</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS JANTAKAN NAISENA</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 26</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#A0522D, #00FFFF);">36</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. BHURINUND CHAMSUWANWONG</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span><span class="badge dietary-badge"></i>💊 แพ้ยากลุ่มซัลฟา</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#2E8B57, #20B2AA);">37</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. NARUPON HORTHAMRAT</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span><span class="badge dietary-badge"></i>🚨 โรคภูมิเเพ้</span></p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 27</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#9400D3, #00FF7F);">38</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. MANON SANOI</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF0000, #3333FF);">39</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. PHARADON  SUWANNATARA</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
+
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 28</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#000080, #FFDAB9);">40</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. WITTAYA WERAWANICHPATTANA</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#4682B4, #00BFFF);">41</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS SATHAPORN PAISANBURAPA</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
+
+       <div class="rounded-xl p-4 stats-bar text-sm" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+        <div class="flex items-center gap-2 text-green-300"><i data-lucide="users" style="width:16px;height:16px;"></i><span>ผู้เดินทางทั้งหมด <strong class="text-white">41</strong> ท่าน</span></div>
+        <div class="flex items-center gap-2 text-blue-300"><i data-lucide="bed-double" style="width:16px;height:16px;"></i><span>ห้องพัก <strong class="text-white">28</strong> ห้อง (15 SGL + 3 DBL + 10 TWN)</span></div>
+        <div class="flex items-center gap-2 text-yellow-300"><span> ไม่ทานปลา <strong class="text-white">1</strong> ท่าน</span></div>
+        <div class="flex items-center gap-2 text-yellow-300"><span> ไม่ทานของดิบ <strong class="text-white">2</strong> ท่าน</span></div>
+        <div class="flex items-center gap-2 text-yellow-300"><span> ไม่ทานกุ้ง <strong class="text-white">1</strong> ท่าน</span></div>
+
+
+        
+
+
+        
+       </div>
+      </div>
+     </div>
+    </section>
+
+   </main>
+
+   <!-- Footer -->
+   <footer class="bg-brand-dark text-white text-center py-6 px-4">
+    <p class="text-sm opacity-80" id="footerText">Guangzhou Shenzhen Hongkong (TG) </p>
+    <p class="text-xs opacity-50 mt-1">24 - 28 November 2026 | 5 Days 4 Nights</p>
+   </footer>
+  </div>
+
+  <script>
+function showSection(id) {
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const sec = document.getElementById('sec-' + id);
+  if (sec) { sec.classList.add('active'); sec.classList.remove('fade-in'); void sec.offsetWidth; sec.classList.add('fade-in'); }
+  document.querySelector('[data-nav="' + id + '"]')?.classList.add('active');
+}
+
+function showDay(n) {
+  document.querySelectorAll('.day-content').forEach(d => d.style.display = 'none');
+  document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active-day'));
+  const dayEl = document.getElementById('day-' + n);
+  if (dayEl) { dayEl.style.display = 'block'; dayEl.classList.remove('fade-in'); void dayEl.offsetWidth; dayEl.classList.add('fade-in'); }
+  document.querySelectorAll('.day-tab')[n - 1]?.classList.add('active-day');
+}
+
+// ===== Image slider (swipe carousel) =====
+function initImgSliders(root) {
+  const sliders = (root || document).querySelectorAll('.img-slider');
+  sliders.forEach(slider => {
+    if (slider.dataset.sliderInit) return; // avoid double-binding
+    slider.dataset.sliderInit = '1';
+
+    const track = slider.querySelector('.img-slider-track');
+    const dots = slider.querySelectorAll('.img-slider-dots span');
+    const counter = slider.querySelector('.img-slider-counter');
+    const slideCount = slider.querySelectorAll('.img-slide').length;
+    if (!track || slideCount === 0) return;
+
+    let ticking = false;
+    const updateActive = () => {
+      const slideWidth = track.clientWidth || 1;
+      const idx = Math.round(track.scrollLeft / slideWidth);
+      const clamped = Math.max(0, Math.min(idx, slideCount - 1));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === clamped));
+      if (counter) counter.textContent = (clamped + 1) + '/' + slideCount;
+      ticking = false;
+    };
+
+    track.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActive);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Tapping a dot jumps to that slide
+    dots.forEach((dot, i) => {
+      dot.style.pointerEvents = 'auto';
+      dot.style.cursor = 'pointer';
+      dot.addEventListener('click', () => {
+        track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+      });
+    });
+
+    // Keep the correct slide in view on resize/orientation change
+    window.addEventListener('resize', () => {
+      const idx = Math.round(track.scrollLeft / (track.clientWidth || 1));
+      track.scrollTo({ left: idx * track.clientWidth, behavior: 'auto' });
+    });
+
+    updateActive();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => initImgSliders(document));
+
+const defaultConfig = {
+  main_title: 'SPAIN EXPLORER',
+  company_name: 'Professional Travel Agency',
+  background_color: '#FFFFFF',
+  surface_color: '#F0FAFC',
+  text_color: '#1E293B',
+  primary_action_color: '#00A0C6',
+  secondary_action_color: '#007A99',
+  font_family: 'Prompt',
+  font_size: 16
+};
+
+function applyConfig(config) {
+  const t = (k) => config[k] || defaultConfig[k];
+  const el = (id) => document.getElementById(id);
+  if (el('mainTitleDisplay')) el('mainTitleDisplay').textContent = t('main_title');
+  if (el('companyNameDisplay')) el('companyNameDisplay').textContent = t('company_name');
+  document.body.style.backgroundColor = t('background_color');
+  document.body.style.color = t('text_color');
+  document.querySelectorAll('.bg-brand-50, .meal-card').forEach(el => el.style.backgroundColor = t('surface_color'));
+  document.querySelectorAll('.nav-btn.active').forEach(el => { el.style.backgroundColor = t('primary_action_color'); el.style.color = '#fff'; });
+  document.querySelectorAll('.day-tab.active-day').forEach(el => { el.style.backgroundColor = t('primary_action_color'); el.style.color = '#fff'; });
+  document.querySelectorAll('.timeline-dot').forEach(el => { el.style.backgroundColor = t('primary_action_color'); el.style.boxShadow = '0 0 0 2px ' + t('primary_action_color'); });
+  const footer = document.querySelector('footer');
+  if (footer) footer.style.backgroundColor = t('secondary_action_color');
+  const font = t('font_family');
+  const baseSize = t('font_size');
+  document.body.style.fontFamily = font + ', Prompt, sans-serif';
+  document.querySelectorAll('h1').forEach(el => el.style.fontSize = (baseSize * 2.5) + 'px');
+  document.querySelectorAll('h2').forEach(el => el.style.fontSize = (baseSize * 1.75) + 'px');
+  document.querySelectorAll('h3').forEach(el => el.style.fontSize = (baseSize * 1.25) + 'px');
+  document.querySelectorAll('p, li, span, td').forEach(el => { if (!el.closest('h1, h2, h3, h4, button')) el.style.fontSize = baseSize + 'px'; });
+}
+
+if (window.elementSdk) {
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange: async (config) => applyConfig(config),
+    mapToCapabilities: (config) => ({
+      recolorables: [
+        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+        { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+        { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+      ],
+      borderables: [],
+      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+    }),
+    mapToEditPanelValues: (config) => new Map([
+      ['main_title', config.main_title || defaultConfig.main_title],
+      ['company_name', config.company_name || defaultConfig.company_name]
+    ])
+  });
+}
+
+lucide.createIcons();
+</script>
+ </body>
+</html>
