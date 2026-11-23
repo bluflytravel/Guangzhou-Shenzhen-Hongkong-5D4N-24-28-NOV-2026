@@ -381,7 +381,7 @@ body { font-family: 'Prompt', sans-serif; }
       </div>
      </div>
 
-     <h3 class="font-semibold text-brand mb-3">🛫 ขาไป — 24 พฤศจิกายน 2569</h3>
+     <h3 class="font-semibold text-brand mb-3"> ขาไป — 24 พฤศจิกายน 2569</h3>
      <div class="space-y-4 mb-8">
       <div class="bg-white border border-brand/20 rounded-2xl p-5 card-hover">
        <div class="flex items-center gap-2 mb-3">
@@ -466,7 +466,7 @@ body { font-family: 'Prompt', sans-serif; }
          <h3 class="font-semibold text-lg">วันอังคารที่ 24 พฤศจิากยน 2569</h3>
          <p class="text-sm text-subtle">กรุงเทพฯ → กวางโจว (สาธารณรัฐประชาชนจีน) </p>
         </div>
-        <span class="ml-auto text-2xl">✈️</span>
+        <span class="ml-auto text-2xl"></span>
        </div>
        <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
        </div>
@@ -558,14 +558,14 @@ body { font-family: 'Prompt', sans-serif; }
          <h3 class="font-semibold text-lg">วันพุธที่ 25 พฤศจิกายน 2569</h3>
          <p class="text-sm text-subtle">กวางโจว → เซินเจิ้น </p>
         </div>
-        <span class="ml-auto text-2xl">✈️</span>
+        <span class="ml-auto text-2xl"></span>
        </div>
        <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
 
       <div class="relative">
         <div class="timeline-dot absolute -left-[31px] top-1"></div>
         <div class="text-sm">
-          <p class="font-semibold">🚗 Xpeng AI Manufacturing Base</p>
+         <p class="text-sm"><span class="font-semibold text-brand">09:00 น.</span> — 🚗 Xpeng AI Manufacturing Base</p>
           <p class="text-subtle mt-1">ศึกษาดูงาน Xpeng AI Manufacturing Base ฐานการผลิตอัจฉริยะของ XPeng (เสี่ยวเผิง) ผู้ผลิตยานยนต์ไฟฟ้า (EV) และเทคโนโลยีการบินระดับชั้นนำของจีน ตั้งอยู่ที่เมืองกวางโจว มณฑลกวางตุ้ง ถือเป็นหนึ่งในโรงงานผลิตรถยนต์ที่ล้ำสมัยที่สุดในโลกภายใต้แนวคิด "AI & Smart Manufacturing" มีพื้นที่รวมหลายแสนตารางเมตร พร้อมกำลังการผลิตรองรับรถยนต์ไฟฟ้าอัจฉริยะมากกว่า 100,000–200,000 คันต่อปี ในส่วนของโครงสร้างตัวถัง (Welding & Stamping Shop) ใช้หุ่นยนต์อุตสาหกรรมทำงานเกือบ 100% ทำให้ประกอบรถยนต์ด้วยความแม่นยำระดับมิลลิเมตร เป็นสถานที่ผลิตรถยนต์ไฟฟ้ารุ่นยอดนิยม เช่น XPeng G6, G9 และ X9 ซึ่งชูจุดเด่นเรื่องระบบสถาปัตยกรรม 800V SiC ชาร์จไว และระบบปฏิบัติการ AI XOS Tianji</p>
       <div class="img-slider">
         <div class="img-slider-track">
@@ -601,15 +601,12 @@ body { font-family: 'Prompt', sans-serif; }
 <div class="relative">
   <div class="timeline-dot absolute -left-[31px] top-1"></div>
   <div class="text-sm">
-    <p class="font-semibold">❄️ โรงงานอัจฉริยะ Midea Nansha (Midea Nansha Smart Factory)</p>
-    <p class="text-subtle mt-1">ศึกษาดูงาน โรงงานอัจฉริยะ Midea Nansha (Midea Nansha Smart Factory) เป็นโรงงานผลิตเครื่องปรับอากาศหลักของ Midea Group ที่ได้รับการยอมรับระดับสากล และได้รับการยกย่องจาก World Economic Forum (WEF) ให้เป็น "โรงงานประภาคาร" (Lighthouse Factory) โรงงานได้รับการอัปเกรดเทคโนโลยีอย่างต่อเนื่องจนก้าวสู่การเป็น Agentic Factory หรือโรงงานที่ขับเคลื่อนด้วยระบบปัญญาประดิษฐ์ (AI Agents) ในการบริหารจัดการ</p>
-    <p class="text-subtle mt-1"> • ระบบอัตโนมัติอิสระ: มี AI Agents คอยตรวจจับ ตัดสินใจ และสั่งการสายการผลิตอัตโนมัติ หากเครื่องจักรเกิดข้อผิดพลาด ระบบจะจัดสรรกำลังการผลิตไปยังจุดอื่นทันทีโดยอัตโนมัติ</p>
-    <p class="text-subtle mt-1"> • กำลังการผลิตสูง: สามารถผลิตเครื่องปรับอากาศได้สูงสุดถึง 45,000 เครื่องต่อวัน รองรับความต้องการของตลาดทั่วโลกอย่างมีประสิทธิภาพ </p>
-    <p class="text-subtle mt-1"> • การควบคุมคุณภาพด้วย AI Vision: ใช้ระบบกล้อง AI ตรวจสอบข้อผิดพลาดของชิ้นส่วนได้มากกว่า 20 จุดภายในเวลาเพียง 6 วินาที ช่วยลดอัตราการรั่วซึมของผลิตภัณฑ์ลงได้ถึง 70% </p>
+         <p class="text-sm"><span class="font-semibold text-brand">14:00 น.</span> — 🚗Guangdong Midea Shunde Factory
+    <p class="text-subtle mt-1">Guangdong Midea Shunde Factory (โรงงานไมเดีย เขตซุ่นเต๋อ มณฑลกวางตุ้ง) เป็นฐานการผลิตหลักและสำนักงานใหญ่ระดับโลกของ Midea Group (ไมเดีย กรุ๊ป) ยักษ์ใหญ่ด้านเครื่องใช้ไฟฟ้าและเทคโนโลยีอุตสาหกรรมของประเทศจีน </p>
     <div class="img-slider">
       <div class="img-slider-track">
-        <div class="img-slide"><img src="https://www.marketplus.in.th/public/images/upload/1758006323.jpeg" loading="lazy" alt="University of Milan 1"></div>
-        <div class="img-slide"><img src="https://static.thairath.co.th/media/dFQROr7oWzulq5Fa6ri5zD5YW5RQwhsD5G8px0R7CKbtfu5NyzihNpq5MEBY43VCuDC.jpg" loading="lazy" alt="University of Milan 2"></div>
+        <div class="img-slide"><img src="https://bitprice.ru/sites/default/files/img/factories/image/9642-448817.jpg" loading="lazy" alt="University of Milan 1"></div>
+        <div class="img-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjmPN8WnJLR42MMnLknvgFWDECFqgbhj0YutAVQHa4Ew&s=10" loading="lazy" alt="University of Milan 2"></div>
       </div>
       <div class="img-slider-dots"><span class="active"></span><span></span></div>
       <div class="img-slider-counter">1/2</div>
@@ -660,14 +657,14 @@ body { font-family: 'Prompt', sans-serif; }
          <h3 class="font-semibold text-lg">วันพฤหัสบดีที่ 26 พฤศจิกายน 2569</h3>
          <p class="text-sm text-subtle">เซินเจิ้น</p>
         </div>
-        <span class="ml-auto text-2xl">📓</span>
+        <span class="ml-auto text-2xl"></span>
        </div>
        <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
 
 <div class="relative">
   <div class="timeline-dot absolute -left-[31px] top-1"></div>
   <div class="text-sm">
-    <p class="font-semibold">🏬 Tencent Binhai Towers</p>
+         <p class="text-sm"><span class="font-semibold text-brand">09:00 น.</span> — 🚗 Tencent Binhai Towers</p>
     <p class="text-subtle mt-1">ศึกษาดูงาน Tencent Binhai Towers รู้จักในชื่อ Tencent Seafront Towers คือสำนักงานใหญ่ระดับโลกของบริษัทเทคโนโลยียักษ์ใหญ่ Tencent (เจ้าของ WeChat, ROV, PUBG Mobile, JOOX และ Tencent Cloud) เป็นหนึ่งในแลนด์มาร์คด้านสถาปัตยกรรมและเทคโนโลยีที่ทันสมัยที่สุดแห่งหนึ่งของโลก ตึกนี้ถูกใช้เป็นห้องทดลองเทคโนโลยีจริง (Living Lab) ของ Tencent โดยนำระบบ AI, IoT และ Big Data มาใช้อย่างเต็มรูปแบบ  เช่น พนักงานใช้ระบบจดจำใบหน้า (Facial Recognition) โดยไม่ต้องแตะบัตร, สามารถกดเลือกลูกศรหรือชั้นผ่านแอปพลิเคชันบนสมาร์ตโฟน (WeChat) เพื่อลดเวลาการรอลิฟต์, ปรับอุณหภูมิและความสว่างของห้องประชุมอัตโนมัติ ตามจำนวนคนที่อยู่ในห้อง, ค้นหาจุดจอดรถว่างให้อัตโนมัติและนำทางผ่านแอปพลิเคชัน </p>
     <div class="mt-3">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVVQOF770NMp7PiY-A_rwdt6IQBXL-MtFt7wFtWrsbblBLKL1WqeAciual&s=10" loading="lazy" class="tour-img" alt="Garuda Wisnu Kencana">
@@ -700,7 +697,7 @@ body { font-family: 'Prompt', sans-serif; }
 <div class="relative">
   <div class="timeline-dot absolute -left-[31px] top-1"></div>
   <div class="text-sm">
-    <p class="font-semibold">💻 งาน China Hi-Tech Fair (CHTF) 2026 ครั้งที่ 28</p>
+         <p class="text-sm"><span class="font-semibold text-brand">13:30 น.</span> — 💻 งาน China Hi-Tech Fair (CHTF) 2026 ครั้งที่ 28 </p>
     <p class="text-subtle mt-1">เข้าร่วม งาน China Hi-Tech Fair (CHTF) 2026 ครั้งที่ 28 ณ ศูนย์นิทรรศการและการประชุมระดับโลกเซินเจิ้น (Shenzhen World) บนพื้นที่กว่า 400,000 ตารางเมตร รวบรวมผู้จัดแสดงมากกว่า 5,000 บริษัทจากทั่วโลก ไฮไลต์และโซนจัดแสดงเทคโนโลยีในปี 2026 จะแบ่งออกเป็น 22 โซนอาชีพ โดยเน้นไปที่เทคโนโลยีเปลี่ยนโลกและอุตสาหกรรมแห่งอนาคต (Strategic Emerging Industries) ที่น่าสนใจสำหรับทริปดูงานเชิงธุรกิจ มีดังนี้</p>
     <p class="text-subtle mt-1"> • Future Technology & AI: โซนปัญญาประดิษฐ์ (AI), ระบบอัจฉริยะ, ซอฟต์แวร์ และ Cloud Computing</p>
     <p class="text-subtle mt-1"> • Semiconductor & Integrated Circuit: อุตสาหกรรมชิปและเซมิคอนดักเตอร์แบบครบวงจร </p>
@@ -755,14 +752,14 @@ body { font-family: 'Prompt', sans-serif; }
          <h3 class="font-semibold text-lg">วันศุกร์ที่ 27 พฤศจิกายน 2569</h3>
          <p class="text-sm text-subtle">เซินเจิ้น </p>
         </div>
-        <span class="ml-auto text-2xl">📱</span>
+        <span class="ml-auto text-2xl"></span>
        </div>
        <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
 
         <div class="relative">
          <div class="timeline-dot absolute -left-[31px] top-1"></div>
          <div class="text-sm">
-          <p class="font-semibold">📱 Huawei Technologies Co., Ltd.</p>
+         <p class="text-sm"><span class="font-semibold text-brand">09:00 น.</span> — 📱 Huawei Technologies Co., Ltd.</p>
           <p class="text-subtle mt-1">ศึกษาดูงาน Huawei Technologies Co., Ltd. ก่อตั้งขึ้นในปี 1987 หัวเว่ยเป็นผู้ให้บริการชั้นนำระดับโลกในด้านโครงสร้างพื้นฐานเทคโนโลยีสารสนเทศและการสื่อสาร (ICT) และอุปกรณ์อัจฉริยะ มุ่งมั่นที่จะนำระบบดิจิตอลไปสู่ทุกคนที่บ้านและองค์กรสำหรับโลกที่เชื่อมต่ออย่างชาญฉลาด มีพนักงานเกือบ 194,000 คนและดำเนินงานในกว่า 170 ประเทศและภูมิภาคให้บริการมากกว่าสามพันล้านคนทั่วโลก กลุ่มผลิตภัณฑ์โซลูชั่นและบริการแบบครบวงจรของ Huawei มีทั้งความสามารถในการแข่งขันและความปลอดภัย ผ่านการทำงานร่วมกันอย่างเปิดกว้างกับพันธมิตรระบบนิเวศ สร้างคุณค่าที่ยั่งยืนให้กับลูกค้าของเรา ทำงานเพื่อเสริมกำลังคนเสริมสร้างชีวิตที่บ้านและสร้างแรงบันดาลใจให้กับนวัตกรรมในองค์กรทุกขนาดและรูปร่าง ที่ Huawei นวัตกรรมมุ่งเน้นที่ความต้องการของลูกค้า ลงทุนอย่างหนักในการวิจัยพื้นฐานโดยมุ่งเน้นที่การคิดค้นทางเทคโนโลยีที่ขับเคลื่อนโลกไปข้างหน้า
           <div class="mt-3">
            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ido1L3ki82O15niwNbDlrtRCxrChLylCH8LD82biUtVyxbssxgT_w3KX&s=10" loading="lazy" class="tour-img" alt="Garuda Wisnu Kencana">
@@ -791,7 +788,7 @@ body { font-family: 'Prompt', sans-serif; }
         <div class="relative">
          <div class="timeline-dot absolute -left-[31px] top-1"></div>
          <div class="text-sm">
-          <p class="font-semibold">Lenovo South Smart Campus (LSSC) </p>
+         <p class="text-sm"><span class="font-semibold text-brand">13:30 น.</span> — 📱 Lenovo South Smart Campus (LSSC)</p>
           <p class="text-subtle mt-1">คณะศึกษาดูงาน Lenovo South Smart Campus (LSSC) ฐานการผลิตอัจฉริยะและศูนย์กลางนวัตกรรมระดับโลกแห่งใหม่ของ Lenovo ไฮไลต์สำคัญคือการเป็นโรงงานอัจฉริยะ (Smart Factory) ต้นแบบยุคอุตสาหกรรม 4.0 ที่เน้นผลิตเซิร์ฟเวอร์และอุปกรณ์ไอทีระดับสูง โดยโดดเด่นด้านการใช้หุ่นยนต์และระบบอัตโนมัติขั้นสูง เทคโนโลยีจำลองโมเดลเสมือนจริง (Digital Twin) และระบบการผลิตที่ยืดหยุ่นสูงเพื่อรองรับคำสั่งซื้อเฉพาะทาง</p>
           <div class="img-slider">
             <div class="img-slider-track">
@@ -847,7 +844,7 @@ body { font-family: 'Prompt', sans-serif; }
          <h3 class="font-semibold text-lg">วันเสาร์ที่ 28 พฤศจิกายน 2569</h3>
          <p class="text-sm text-subtle"> เซินเจิ้น → ฮ่องกง → กรุงเทพฯ </p>
         </div>
-        <span class="ml-auto text-2xl">⛪</span>
+        <span class="ml-auto text-2xl"></span>
        </div>
        <div class="space-y-4 ml-5 border-l-2 border-brand/20 pl-6">
 
@@ -1261,7 +1258,7 @@ body { font-family: 'Prompt', sans-serif; }
 
 
         <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 14</span>
-        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#B8860B,#CD853F);">14</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. VORRAVUTH TANGPIROONTHUM</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div>
+        <span class="badge room-badge3"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Single Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#B8860B,#CD853F);">14</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. VORRAVUTH TANGPIROONTHUM</p><p class="text-xs text-gray-400">ผู้เดินทาง</span></span></span><span class="badge dietary-badge2"><i data-lucide="plane" style="width:12px;height:12px;"></i>กลับวันที่ 29/11/2026</span></div></div></div>
 
 
         <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 15</span>
@@ -1282,7 +1279,7 @@ body { font-family: 'Prompt', sans-serif; }
 
         <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 22</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#000000, #A52A2A);">28</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS HARUTAI  RUENGSOMBOON</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#7CFC00, #3333FF);">29</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS NARUMON SUKSAKULCHAI</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
 
-        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 23</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#000000, #DB7093);">30</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS BENJAWAN KIJPANICH</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF4500, #3333FF);">31</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS NONTHACHA DECHOTHUTBAWONDEH</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
+        <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 23</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#000000, #DB7093);">30</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS BENJAWAN KIJPANICH</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span></span></span><span class="badge dietary-badge2"><i data-lucide="plane" style="width:12px;height:12px;"></i>Split Departure flight CZ3082</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#FF4500, #3333FF);">31</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MISS NONTHACHA DECHOTHUTBAWONDEH</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
 
         <div class="room-card"><div class="flex flex-wrap items-center gap-2 mb-4"><i data-lucide="bed-double" style="width:20px;height:20px;color:#1e40af;"></i><span class="font-bold text-gray-800 text-lg">ห้องที่ 24</span><span class="badge room-badge"><i data-lucide="door-open" style="width:12px;height:12px;"></i>Twin Room</span></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#F4A460, #DB7093);">32</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. SONGYOT PARADEE</p><div class="flex flex-wrap items-center gap-2 mt-1"><span class="text-xs text-gray-400">ผู้เดินทาง</span><span class="badge dietary-badge"></i>💊 ความดันโลหิตสูง</span></div></div></div><div class="guest-row"><div class="avatar" style="background:linear-gradient(135deg,#B03060, #3333FF);">33</div><div class="flex-1 min-w-0"><p class="font-semibold text-gray-800 text-sm md:text-base">MR. NARONG TECHANIRUTSAI</p><p class="text-xs text-gray-400">ผู้เดินทาง  </span></p></div></div></div>
 
